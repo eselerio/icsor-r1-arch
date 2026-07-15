@@ -134,7 +134,7 @@ y_{raw}=I_{comp}c_{raw}=B_{raw,ext}\phi,
 \qquad
 B_{raw,ext}=I_{comp}\widehat{R}^{-1}\widehat{B}.
 \end{equation*}
-Figure~4 presents the COD row's $\Theta_{cc}$ block from $B_{raw,ext}$. The COD, TN, TP, and TSS raw-head atlases are provided as Supplementary Figures S1--S4. This definition corrects the output-space distinction explicitly: rows of $\widehat{B}$ are ASM component-driver rows and cannot be indexed directly by reported-composite labels. The final affine/LP map is active-set dependent and therefore has no single global coefficient matrix; Figure~4 must not be read as a derivative of the final corrected output.
+Figure~4 presents the COD row's $\Theta_{cc}$ block from $B_{raw,ext}$. The COD, TN, TP, and TSS raw-head atlases are provided as Supplementary Figures S1--S4. Rows of $\widehat{B}$ are ASM component-driver rows and therefore cannot be indexed directly by reported-composite labels. The final affine/LP map is active-set dependent and has no single global coefficient matrix; Figure~4 must not be read as a derivative of the final deployed output.
 \end{revisionexcerpt}
 
 \excerptlocation{Figure 4 caption}
@@ -144,12 +144,12 @@ COD raw-head $\Theta_{cc}$ heatmap from $B_{raw,ext}=I_{comp}\widehat{R}^{-1}\wi
 
 \excerptlocation{Section 4.4 coefficient interpretation}
 \begin{revisionexcerpt}
-The corrected COD raw-head surface is exactly symmetric at stored precision. Its largest-magnitude entry is the $S_O$--$S_O$ self-curvature term ($-5.8097$), followed by the mirrored $S_O$--$S_{N2}$ pair ($-1.7411$). Other prominent terms link $S_O$ with $X_{MeP}$ ($2.3190\times10^{-1}$), $X_{AOB}$ ($-1.3264\times10^{-1}$), $S_{PO4}$ ($-1.3055\times10^{-1}$), $X_{NOB}$ ($-1.0182\times10^{-1}$), and $S_{NO2}$ ($-9.4127\times10^{-2}$). Under the ordered Kronecker convention, a displayed off-diagonal value $q_{ij}=q_{ji}$ contributes $(q_{ij}+q_{ji})x_ix_j=2q_{ij}x_ix_j$ to the polynomial, so cell values and combined unordered cross-term coefficients are not interchangeable.
+The COD raw-head surface is exactly symmetric at stored precision. Its largest-magnitude entry is the $S_O$--$S_O$ self-curvature term ($-5.8097$), followed by the mirrored $S_O$--$S_{N2}$ pair ($-1.7411$). Other prominent terms link $S_O$ with $X_{MeP}$ ($2.3190\times10^{-1}$), $X_{AOB}$ ($-1.3264\times10^{-1}$), $S_{PO4}$ ($-1.3055\times10^{-1}$), $X_{NOB}$ ($-1.0182\times10^{-1}$), and $S_{NO2}$ ($-9.4127\times10^{-2}$). Under the ordered Kronecker convention, a displayed off-diagonal value $q_{ij}=q_{ji}$ contributes $(q_{ij}+q_{ji})x_ix_j=2q_{ij}x_ix_j$ to the polynomial, so cell values and combined unordered cross-term coefficients are not interchangeable.
 \end{revisionexcerpt}
 
 \excerptlocation{Coefficient-retention table caption and entries}
 \begin{revisionexcerpt}
-Retained coefficients in the corrected COD raw-head structure. The reported-output blocks use $10^{-4}$ of the largest absolute COD raw-head coefficient ($4.7332\times10^{-3}$); the shared $\Gamma$ block uses $10^{-4}$ of its own largest off-diagonal magnitude ($3.6803\times10^{-5}$). Symmetric quadratic totals count only unique upper-triangular terms.
+Retained coefficients in the COD raw-head structure. The reported-output blocks use $10^{-4}$ of the largest absolute COD raw-head coefficient ($4.7332\times10^{-3}$); the shared $\Gamma$ block uses $10^{-4}$ of its own largest off-diagonal magnitude ($3.6803\times10^{-5}$). Symmetric quadratic totals count only unique upper-triangular terms.
 
 \begin{center}
 \scriptsize
@@ -187,7 +187,7 @@ The Abstract, Graphical Abstract, and Conclusion currently project the 0\% outco
 
 \noindent\textbf{Response.} We thank the reviewer for this precise distinction and agree. The Abstract, Highlights, Graphical Abstract, Introduction, Sections 2.3, 2.4, and 2.6, Sections 4.1, 4.3, and 4.4, and the Conclusion now consistently describe ICSOR as an interpretable constrained-deployment surrogate. The regression head is described as invariant-aware but not inherently feasible. Section 2.4 now states explicitly that $\lambda_{inv}$ is a soft regularizer and that the hard guarantee is supplied by the checked affine/LP deployment rule. Section 4.3 now states directly that the zero final violation rates belong to the ICSOR deployment map, not to its regression head.
 
-The revised Graphical Abstract uses the exact labels ``Invariant-aware regression head,'' ``soft training penalties,'' ``Hard deployment correction:,'' and ``Raw $\rightarrow$ Affine $\rightarrow$ LP.'' Its outcome panel is headed ``Final deployed outputs:'' and reports ``0\% conservation violations'' and ``0\% non-negativity violations,'' while its accuracy summary reads ``Moderate RMSE tradeoff.''
+The revised Graphical Abstract uses the exact labels ``Invariant-aware regression head,'' ``soft training penalties,'' ``Hard deployment correction:,'' and ``Raw $\rightarrow$ Affine $\rightarrow$ LP.'' Its outcome panel is headed ``Final deployed outputs:'' and reports ``0\% conservation violations'' and ``0\% non-negativity violations,''.
 
 \revisionnotice
 
@@ -221,7 +221,6 @@ Final deployed outputs:
 
 0\% non-negativity violations
 
-Moderate RMSE tradeoff
 \end{revisionexcerpt}
 
 \excerptlocation{Introduction}
@@ -253,7 +252,7 @@ ICSOR differs in two distinct respects that should not be conflated: its regress
 
 \excerptlocation{Section 4.1, ``Overall Benchmark Performance on the Fixed Train-Test Split''}
 \begin{revisionexcerpt}
-In terms of predictive accuracy on the fixed split, the MLP attains the lowest error among the retained baselines and LightGBM attains the lowest among the tree-based methods. ICSOR does not attain the lowest aggregate RMSE: its final corrected outputs give 5.98, which is 36.5\% higher than the MLP value of 4.38 and 12.8\% higher than the LightGBM value of 5.30. ICSOR remains within 0.01 of SVR and below XGBoost and CatBoost. These results define a moderate accuracy--feasibility tradeoff.
+In terms of predictive accuracy on the fixed split, the MLP attains the lowest error among the retained baselines and LightGBM attains the lowest among the tree-based methods. ICSOR does not attain the lowest aggregate RMSE: its final deployed outputs give 5.98, which is 36.5\% higher than the MLP value of 4.38 and 12.8\% higher than the LightGBM value of 5.30. ICSOR remains within 0.01 of SVR and below XGBoost and CatBoost. These results define a moderate accuracy--feasibility tradeoff.
 \end{revisionexcerpt}
 
 \excerptlocation{Section 4.3, ``Physical Admissibility and Deployment Behavior''}
@@ -279,7 +278,7 @@ This study developed Invariant-Constrained Second-Order Regression (ICSOR) as an
 ICSOR's aggregate test RMSE of 5.98 is 36\% higher than the MLP's 4.38 and 13\% higher than LightGBM's 5.30. Calling this ``competitive aggregate accuracy'' in the Abstract is generous; the Conclusion describes the same result more carefully as a ``moderate predictive tradeoff.'' I recommend aligning the Abstract with the more careful framing in the Conclusion so that the reader is not surprised by the accuracy gap when reaching Section 4.1.
 \end{reviewercomment}
 
-\noindent\textbf{Response.} We appreciate the reviewer's recommendation and have adopted the more cautious framing. The Abstract no longer claims ``competitive aggregate accuracy.'' It now reports the three RMSE values directly and describes the result as a moderate fixed-split predictive tradeoff. Section 4.1 quantifies the gaps as 36.5\% relative to the MLP and 12.8\% relative to LightGBM under the stated reporting protocol, in which comparator values include the common equality-only affine alignment but no LP non-negativity correction; the Conclusion uses the same moderate-tradeoff description.
+\noindent\textbf{Response.} We appreciate the reviewer's recommendation and have adopted the more cautious framing. The Abstract no longer claims ``competitive aggregate accuracy.'' It now reports the three RMSE values directly and describes the result as a moderate predictive tradeoff. Section 4.1 quantifies the gaps as 36.5\% relative to the MLP and 12.8\% relative to LightGBM under the stated reporting protocol, in which comparator values include the common equality-only affine alignment but no LP non-negativity correction; the Conclusion uses the same moderate-tradeoff description.
 
 \revisionnotice
 
@@ -290,7 +289,7 @@ This hard-feasibility outcome involved a moderate fixed-split predictive tradeof
 
 \excerptlocation{Section 4.1, ``Overall Benchmark Performance on the Fixed Train-Test Split''}
 \begin{revisionexcerpt}
-ICSOR does not attain the lowest aggregate RMSE: its final corrected outputs give 5.98, which is 36.5\% higher than the MLP value of 4.38 and 12.8\% higher than the LightGBM value of 5.30. ICSOR remains within 0.01 of SVR and below XGBoost and CatBoost. These results define a moderate accuracy--feasibility tradeoff. Under the stated reporting protocol, the comparator values include the common equality-only affine alignment but no LP non-negativity correction, whereas ICSOR is evaluated after its complete checked deployment rule.
+ICSOR does not attain the lowest aggregate RMSE: its final deployed outputs give 5.98, which is 36.5\% higher than the MLP value of 4.38 and 12.8\% higher than the LightGBM value of 5.30. ICSOR remains within 0.01 of SVR and below XGBoost and CatBoost. These results define a moderate accuracy--feasibility tradeoff. Under the stated reporting protocol, the comparator values include the common equality-only affine alignment but no LP non-negativity correction, whereas ICSOR is evaluated after its complete checked deployment rule.
 \end{revisionexcerpt}
 
 \excerptlocation{Conclusion}
