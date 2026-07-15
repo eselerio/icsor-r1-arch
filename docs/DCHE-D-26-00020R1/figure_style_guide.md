@@ -484,7 +484,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-OUTDIR = Path("docs/DCHE-D-26-00020")
+OUTDIR = Path("docs/DCHE-D-26-00020R1")
 
 PALETTE = [
     "#264653",
@@ -566,7 +566,7 @@ Change only these items:
 
 If this visual language will be reused repeatedly, the next logical improvement is to promote it from an inline script into a dedicated plotting helper module or a single reproducible script such as:
 
-- `docs/DCHE-D-26-00020/build_sample_figures.py`
+- `docs/DCHE-D-26-00020R1/build_sample_figures.py`
 
 That would make the style reproducible from one command instead of by copying code blocks out of this note.
 

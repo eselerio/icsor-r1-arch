@@ -1,4 +1,4 @@
-# DCHE-D-26-00020 Submission Guideline
+# DCHE-D-26-00020R1 Submission Guideline
 
 This folder is prepared for Editorial Manager (EM) as a flat LaTeX submission package. Zip the contents of this folder, not a parent directory with extra files.
 
@@ -13,6 +13,9 @@ This folder is prepared for Editorial Manager (EM) as a flat LaTeX submission pa
 ## Files That Should Be In This Folder Before Zipping
 
 - `manuscript.tex`
+- `manuscript_marked_up.tex`
+- `response_to_reviewers.tex`
+- `supplementary_material.tex`
 - `cas-sc.cls`
 - `cas-common.sty`
 - Any additional `.sty`, `.cls`, `.bst`, `.bib`, or `.bbl` files actually referenced by the manuscript
@@ -31,9 +34,9 @@ This folder is prepared for Editorial Manager (EM) as a flat LaTeX submission pa
 
 When generating a local PDF from the TeX source, do not leave the generated PDF or other LaTeX build artifacts inside this submission folder.
 
-- Write all generated LaTeX artifacts to a subfolder under `docs/latex_pdfs` that matches the source folder name.
-- Name the generated PDF after the submission folder.
-- For this submission, the artifact folder should be `docs/latex_pdfs/DCHE-D-26-00020` and the output PDF should be `DCHE-D-26-00020.pdf` inside that folder.
+- Write all generated LaTeX artifacts to a fresh timestamped folder under `docs/latex_pdfs`.
+- Keep the staged source files and their generated PDFs together in that archived build folder.
+- For this revision, build from `docs/DCHE-D-26-00020R1` through the repository's `build-latex-pdf` workflow.
 
 This keeps the submission folder clean and avoids including local build output in the zip package.
 
@@ -428,15 +431,17 @@ What to verify:
 ### Figure `fig:results_interpretability_sample` using `figure4_icsor_structure.pdf`
 
 Purpose:
-Show the COD-only `\Theta_{cc}` interaction heatmap retained in the main manuscript.
+Show the COD raw-head `\Theta_{cc}` interaction heatmap retained in the main manuscript.
 
 Source:
 
-- The final COD `\Theta_{cc}` block extracted from the fitted ICSOR coefficient structure selected for the paper.
+- The final COD row of the globally defined pre-correction reported-output coefficient map `I_comp (I_F - Gamma)^{-1} B` extracted from the fitted ICSOR model selected for the paper.
 
 How to generate:
 
-- Use only the COD `\Theta_{cc}` block for the main-text figure.
+- Form the reported-output raw-head coefficient matrix before unpacking blocks; do not index component-space rows with reported-composite indices.
+- Use only the COD raw-head `\Theta_{cc}` block for the main-text figure.
+- Verify that the displayed matrix is symmetric to the adopted numerical tolerance and display the full mirrored matrix.
 - Use the full ASM component basis on both axes.
 - Draw the matrix from the lower origin so labels progress outward from the matrix origin.
 - Use a symmetric zero-centered diverging color scale.
@@ -454,12 +459,13 @@ Summarize retained coefficients by COD block and quantify how sparse each retain
 
 Source:
 
-- The fitted COD coefficient blocks from the retained ICSOR model.
+- The fitted COD raw-head coefficient blocks from `I_comp (I_F - Gamma)^{-1} B` and the shared component-space `Gamma` block from the retained ICSOR model.
 - The same coefficient-retention rule used in the interpretability workflow.
 
 How to calculate:
 
-- For each COD coefficient block included in the table, count the total number of coefficients in that block.
+- For each COD coefficient block included in the table, count the total number of independently interpretable coefficients in that block.
+- Count only upper-triangular entries, including the diagonal, for the symmetric `Theta_uu` and `Theta_cc` blocks; the mirrored lower-triangular display cells are not additional parameters.
 - Apply the chosen retention rule consistently within each block. The current workflow uses a retention threshold defined relative to the maximum absolute coefficient magnitude inside the block.
 - Count the number of retained coefficients in each block after thresholding.
 - Compute percentage retained as:
@@ -484,7 +490,7 @@ What to verify:
 
 Use these rules for every manuscript figure.
 
-- Keep every final figure file directly inside `docs/DCHE-D-26-00020`.
+- Keep every final figure file directly inside `docs/DCHE-D-26-00020R1`.
 - Do not use subfolder paths inside the manuscript.
 - Use flat filenames already referenced by the manuscript.
 - Remove the illustrative footer from final submission figures.
@@ -519,7 +525,7 @@ To minimize inconsistencies, regenerate the manuscript assets in this order.
 Before creating the EM zip, verify all of the following.
 
 - Every captioned table and figure referenced in `manuscript.tex` has a final, non-illustrative payload.
-- Every figure filename referenced in `manuscript.tex` exists directly in `docs/DCHE-D-26-00020`.
+- Every figure filename referenced in `manuscript.tex` exists directly in `docs/DCHE-D-26-00020R1`.
 - Every result table value can be traced back to the benchmark run used for the manuscript.
 - The MLP architecture figure matches the ANN hyperparameter table.
 - The Optuna tables match the retained benchmark configuration.
@@ -537,7 +543,7 @@ Before creating the EM zip, verify all of the following.
 
 ## Recommended Zip Procedure
 
-1. Open the `docs/DCHE-D-26-00020` folder.
+1. Open the `docs/DCHE-D-26-00020R1` folder.
 2. Select the submission files inside the folder, not the parent `docs` directory.
 3. Create a `.zip` archive from those files.
 4. Upload the archive to EM.
@@ -545,13 +551,7 @@ Before creating the EM zip, verify all of the following.
 
 ## Recommended Local Build Output Location
 
-For local validation builds, place the generated artifacts here:
-
-- `docs/latex_pdfs/DCHE-D-26-00020/`
-
-The generated PDF should be:
-
-- `docs/latex_pdfs/DCHE-D-26-00020/DCHE-D-26-00020.pdf`
+For local validation builds, use the repository build workflow, which creates a fresh timestamped folder under `docs/latex_pdfs` and stages the complete R1 source project there before compilation.
 
 Do not move that generated PDF or any other generated artifact back into this submission folder before zipping.
 
@@ -560,19 +560,12 @@ Do not move that generated PDF or any other generated artifact back into this su
 Use this PowerShell command from the repository root:
 
 ```powershell
-New-Item -ItemType Directory -Force -Path "docs\latex_pdfs\DCHE-D-26-00020" | Out-Null
-pdflatex -interaction=nonstopmode -halt-on-error -output-directory="docs\latex_pdfs\DCHE-D-26-00020" -jobname="DCHE-D-26-00020" "docs\DCHE-D-26-00020\manuscript.tex"
+powershell -ExecutionPolicy Bypass -File ".codex\skills\build-latex-pdf\scripts\build_latex_pdf.ps1" `
+  -SourceRoot "docs\DCHE-D-26-00020R1" `
+  -TexFiles "docs\DCHE-D-26-00020R1\manuscript.tex","docs\DCHE-D-26-00020R1\manuscript_marked_up.tex","docs\DCHE-D-26-00020R1\response_to_reviewers.tex","docs\DCHE-D-26-00020R1\supplementary_material.tex"
 ```
 
-This generates the LaTeX build artifacts in:
-
-- `docs/latex_pdfs/DCHE-D-26-00020/`
-
-The generated PDF will be at:
-
-- `docs/latex_pdfs/DCHE-D-26-00020/DCHE-D-26-00020.pdf`
-
-If cross-references need a second pass, run the same command again.
+The command reports the timestamped output folder and each generated PDF. If compilation fails, inspect the log in that archived folder, revise the source, and run the command again to create a clean archive.
 
 ## If EM Still Fails To Compile
 

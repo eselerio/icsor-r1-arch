@@ -1,0 +1,11 @@
+Model,Mass-Conservation Violations (%),Non-Negativity Violations (%)
+MLP,100.0,58.2
+LightGBM,100.0,46.0
+SVR,100.0,68.65
+ICSOR,0.0,0.0
+XGBoost,100.0,64.95
+CatBoost,100.0,70.1
+AdaBoost,100.0,0.0
+k-NN,100.0,0.0
+PLS,100.0,48.7
+Random Forest,100.0,0.0

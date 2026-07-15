@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import gc
 import re
 import time
 from collections.abc import Callable, Mapping, Sequence
@@ -1128,6 +1129,64 @@ def build_icsor_coupled_qp_response_surface_prediction_data(
 	)
 
 
+def compute_icsor_coupled_qp_raw_head_external_coefficients(
+	composition_matrix: np.ndarray,
+	r_matrix: np.ndarray,
+	b_matrix: np.ndarray,
+) -> np.ndarray:
+	"""Map coupled-QP raw-head design coefficients into external measured-output space."""
+
+	composition_array = np.asarray(composition_matrix, dtype=float)
+	r_array = np.asarray(r_matrix, dtype=float)
+	b_array = np.asarray(b_matrix, dtype=float)
+	if composition_array.ndim != 2 or r_array.ndim != 2 or b_array.ndim != 2:
+		raise ValueError("composition_matrix, R_matrix, and B_matrix must all be two-dimensional.")
+	if r_array.shape[0] != r_array.shape[1]:
+		raise ValueError("R_matrix must be square.")
+	if b_array.shape[0] != r_array.shape[0]:
+		raise ValueError("B_matrix row count must match the R_matrix dimension.")
+	if composition_array.shape[1] != r_array.shape[0]:
+		raise ValueError("composition_matrix column count must match the R_matrix dimension.")
+
+	return composition_array @ np.linalg.solve(r_array, b_array)
+
+
+def count_retained_symmetric_quadratic_coefficients(
+	coefficient_matrices: np.ndarray,
+	*,
+	retention_fraction: float = 1e-4,
+	absolute_threshold: float | None = None,
+) -> int:
+	"""Count retained unique upper-triangular entries across symmetric quadratic matrices."""
+
+	coefficient_array = np.asarray(coefficient_matrices, dtype=float)
+	if coefficient_array.ndim < 2 or coefficient_array.shape[-2] != coefficient_array.shape[-1]:
+		raise ValueError("coefficient_matrices must contain square matrices in its final two dimensions.")
+	if retention_fraction <= 0.0:
+		raise ValueError("retention_fraction must be positive.")
+	if absolute_threshold is not None and absolute_threshold < 0.0:
+		raise ValueError("absolute_threshold must be nonnegative when provided.")
+
+	matrix_dimension = int(coefficient_array.shape[-1])
+	flattened_matrices = coefficient_array.reshape(-1, matrix_dimension, matrix_dimension)
+	upper_triangle_indices = np.triu_indices(matrix_dimension)
+	retained_count = 0
+	for coefficient_matrix in flattened_matrices:
+		upper_absolute_values = np.abs(coefficient_matrix[upper_triangle_indices])
+		if upper_absolute_values.size == 0:
+			continue
+		if absolute_threshold is None:
+			matrix_max_abs = float(np.max(upper_absolute_values))
+			threshold_value = float(retention_fraction) * matrix_max_abs
+		else:
+			threshold_value = float(absolute_threshold)
+		retained_count += int(
+			np.sum((upper_absolute_values > 0.0) & (upper_absolute_values >= threshold_value))
+		)
+
+	return retained_count
+
+
 def build_icsor_coupled_qp_coefficient_frames(
 	model_bundle: Mapping[str, Any],
 ) -> dict[str, pd.DataFrame]:
@@ -1739,6 +1798,9 @@ def run_model_dataset_size_analysis(
 				)
 				progress_bar.update(1)
 				progress_bar.set_postfix(size=int(dataset_size_total), repeat=repeat_index + 1)
+				del result, dataset_splits, sampled_dataset
+				if (repeat_index + 1) % 10 == 0:
+					gc.collect()
 	finally:
 		progress_bar.close()
 
@@ -2467,6 +2529,8 @@ __all__ = [
 	"build_icsor_coupled_qp_coefficient_frames",
 	"build_icsor_coupled_qp_coefficient_metadata",
 	"build_icsor_coupled_qp_response_surface_prediction_data",
+	"compute_icsor_coupled_qp_raw_head_external_coefficients",
+	"count_retained_symmetric_quadratic_coefficients",
 	"build_notebook_table_recorder",
 	"build_effective_aggregate_metrics",
 	"build_train_test_gap_summary",

@@ -389,6 +389,59 @@ def _solve_b_update(
     return solved_matrix.T
 
 
+def _symmetrize_quadratic_coefficient_blocks(
+    b_matrix: np.ndarray,
+    design_schema: Mapping[str, Any],
+) -> np.ndarray:
+    """Project ordered within-group quadratic coefficient blocks onto symmetric matrices."""
+
+    coefficient_matrix = np.asarray(b_matrix, dtype=float)
+    if coefficient_matrix.ndim != 2:
+        raise ValueError("B_matrix must be two-dimensional.")
+
+    block_ranges = dict(design_schema.get("block_ranges", {}))
+    dimensions = dict(design_schema.get("dimensions", {}))
+    symmetric_matrix = coefficient_matrix.copy()
+    block_specs = (
+        ("quadratic_operational", "operational"),
+        ("quadratic_influent", "influent"),
+    )
+
+    for block_name, dimension_name in block_specs:
+        if block_name not in block_ranges or dimension_name not in dimensions:
+            raise ValueError(
+                f"design_schema must define '{block_name}' and its '{dimension_name}' dimension."
+            )
+
+        block_range = dict(block_ranges[block_name])
+        start_index = int(block_range.get("start", 0))
+        stop_index = int(block_range.get("stop", start_index))
+        matrix_dimension = int(dimensions[dimension_name])
+        expected_width = matrix_dimension**2
+
+        if matrix_dimension < 0:
+            raise ValueError(f"design_schema dimension '{dimension_name}' must be nonnegative.")
+        if start_index < 0 or stop_index > coefficient_matrix.shape[1] or stop_index < start_index:
+            raise ValueError(
+                f"Invalid design-schema block range for '{block_name}': "
+                f"[{start_index}, {stop_index}) outside B-matrix width {coefficient_matrix.shape[1]}."
+            )
+        if stop_index - start_index != expected_width:
+            raise ValueError(
+                f"Design-schema block '{block_name}' has width {stop_index - start_index}; "
+                f"expected {expected_width} for dimension {matrix_dimension}."
+            )
+
+        block_matrices = symmetric_matrix[:, start_index:stop_index].reshape(
+            coefficient_matrix.shape[0],
+            matrix_dimension,
+            matrix_dimension,
+        )
+        block_matrices[...] = 0.5 * (block_matrices + block_matrices.transpose(0, 2, 1))
+
+    return symmetric_matrix
+
+
 def _enforce_gamma_conditioning(
     gamma_matrix: np.ndarray,
     *,
@@ -762,6 +815,7 @@ def _run_coupled_qp_restart(
     invariant_matrix: np.ndarray,
     settings: Mapping[str, Any],
     *,
+    design_schema: Mapping[str, Any],
     initial_gamma: np.ndarray,
 ) -> dict[str, Any]:
     gamma_matrix, conditioning_value, shrink_factor = _enforce_gamma_conditioning(
@@ -769,11 +823,14 @@ def _run_coupled_qp_restart(
         conditioning_max=float(settings["conditioning_max"]),
     )
     fitted_predictions = np.maximum(target_matrix, 0.0)
-    b_matrix = _solve_b_update(
-        design_matrix,
-        fitted_predictions,
-        gamma_matrix,
-        settings,
+    b_matrix = _symmetrize_quadratic_coefficient_blocks(
+        _solve_b_update(
+            design_matrix,
+            fitted_predictions,
+            gamma_matrix,
+            settings,
+        ),
+        design_schema,
     )
 
     objective_history: list[float] = []
@@ -802,11 +859,14 @@ def _run_coupled_qp_restart(
     regression_slope_tolerance = float(settings["objective_regression_slope_tolerance"])
 
     for outer_iteration in range(int(settings["max_outer_iterations"])):
-        b_updated = _solve_b_update(
-            design_matrix,
-            fitted_predictions,
-            gamma_matrix,
-            settings,
+        b_updated = _symmetrize_quadratic_coefficient_blocks(
+            _solve_b_update(
+                design_matrix,
+                fitted_predictions,
+                gamma_matrix,
+                settings,
+            ),
+            design_schema,
         )
         driver_matrix = design_matrix @ b_updated.T
 
@@ -1602,6 +1662,7 @@ def train_icsor_coupled_qp_model(
                     influent_matrix,
                     invariant_matrix,
                     settings,
+                    design_schema=design_schema,
                     initial_gamma=gamma_init,
                 )
                 restart_summary = {

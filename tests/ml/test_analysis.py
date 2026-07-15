@@ -33,6 +33,8 @@ from src.utils.analysis import (
 	build_icsor_response_surface_prediction_data,
 	build_dataset_size_schedule,
 	collate_model_analysis_results,
+	compute_icsor_coupled_qp_raw_head_external_coefficients,
+	count_retained_symmetric_quadratic_coefficients,
 	load_latest_analysis_result,
 	load_latest_classical_training_context,
 	load_latest_icsor_training_context,
@@ -1002,6 +1004,82 @@ class AnalysisHelperTests(unittest.TestCase):
 		self.assertEqual(str(contract_row["system_matrix_definition"]), "R = I - Gamma")
 		self.assertIn("unrestricted", str(contract_row["driver_sign_constraint"]).lower())
 		self.assertIn("hard constraints", str(contract_row["deployment_nonnegativity_enforcement"]).lower())
+
+	def test_compute_icsor_coupled_qp_raw_head_external_coefficients_matches_direct_transformation(self) -> None:
+		composition_matrix = np.array(
+			[
+				[1.0, 0.25, -0.5],
+				[0.0, 2.0, 0.75],
+			],
+			dtype=float,
+		)
+		r_matrix = np.array(
+			[
+				[1.5, 0.2, 0.0],
+				[-0.1, 1.25, 0.15],
+				[0.05, 0.0, 0.9],
+			],
+			dtype=float,
+		)
+		b_matrix = np.array(
+			[
+				[1.0, -2.0, 0.5, 0.25],
+				[0.3, 0.7, -1.0, 2.0],
+				[-0.4, 1.2, 0.8, -0.6],
+			],
+			dtype=float,
+		)
+
+		external_coefficients = compute_icsor_coupled_qp_raw_head_external_coefficients(
+			composition_matrix,
+			r_matrix,
+			b_matrix,
+		)
+		expected_coefficients = composition_matrix @ np.linalg.inv(r_matrix) @ b_matrix
+		np.testing.assert_allclose(external_coefficients, expected_coefficients, atol=1e-12, rtol=1e-12)
+
+		design_matrix = np.array([[0.2, -0.5, 1.1, 0.7], [-1.0, 0.3, 0.0, 2.0]], dtype=float)
+		expected_external_predictions = (
+			np.linalg.solve(r_matrix, (design_matrix @ b_matrix.T).T).T @ composition_matrix.T
+		)
+		np.testing.assert_allclose(
+			design_matrix @ external_coefficients.T,
+			expected_external_predictions,
+			atol=1e-12,
+			rtol=1e-12,
+		)
+
+	def test_count_retained_symmetric_quadratic_coefficients_counts_unique_upper_triangle(self) -> None:
+		coefficient_matrices = np.array(
+			[
+				[
+					[4.0, 0.5, 0.0],
+					[0.5, 0.4, 2.0],
+					[0.0, 2.0, 0.0],
+				],
+				[
+					[0.0, 0.2, 0.0],
+					[0.2, 1.0, 0.1],
+					[0.0, 0.1, 0.0],
+				],
+			],
+			dtype=float,
+		)
+
+		self.assertEqual(
+			count_retained_symmetric_quadratic_coefficients(
+				coefficient_matrices,
+				retention_fraction=0.1,
+			),
+			7,
+		)
+		self.assertEqual(
+			count_retained_symmetric_quadratic_coefficients(
+				coefficient_matrices,
+				absolute_threshold=0.5,
+			),
+			4,
+		)
 
 
 if __name__ == "__main__":

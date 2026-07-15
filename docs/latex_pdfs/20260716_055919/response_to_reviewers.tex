@@ -1,0 +1,391 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{mdframed}
+\usepackage{microtype}
+\usepackage{parskip}
+
+\definecolor{revisionblue}{RGB}{0,0,255}
+\definecolor{commentgray}{RGB}{247,247,247}
+\definecolor{commentborder}{RGB}{120,120,120}
+
+\newmdenv[
+  backgroundcolor=commentgray,
+  linecolor=commentborder,
+  linewidth=0.7pt,
+  roundcorner=2pt,
+  skipabove=8pt,
+  skipbelow=8pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  innerleftmargin=9pt,
+  innerrightmargin=9pt
+]{reviewercomment}
+
+\newmdenv[
+  linecolor=revisionblue,
+  fontcolor=revisionblue,
+  linewidth=1pt,
+  roundcorner=2pt,
+  skipabove=6pt,
+  skipbelow=8pt,
+  innertopmargin=7pt,
+  innerbottommargin=7pt,
+  innerleftmargin=9pt,
+  innerrightmargin=9pt
+]{revisionexcerpt}
+
+\newcommand{\revisionnotice}{\par\noindent\textcolor{revisionblue}{\textbf{Revision highlight in manuscript: blue.}}\par}
+\newcommand{\excerptlocation}[1]{\par\noindent\textit{Revised location: #1}\par}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Response to Reviewers}\par
+\vspace{0.5em}
+{\large Manuscript DCHE-D-26-00020R1}\par
+\vspace{0.5em}
+{\large\bfseries An Interpretable Statistical Surrogate of Activated Sludge Systems}\par
+{\large\bfseries that Preserves Mass Conservation and Component Non-Negativity}
+\end{center}
+
+\section*{General Manuscript-Wide Revisions}
+
+We thank Reviewer 1 for recognizing the substantial engineering revision and for identifying the remaining points requiring clarification. In response, we have (i) made the symmetry mechanism for the self-quadratic coefficient blocks explicit in both the estimator and manuscript, (ii) corrected the reported-output coefficient extraction so that the interpretability figures represent the raw coupled head $I_{comp}(I_F-\Gamma)^{-1}B$, (iii) reframed every physical guarantee as a property of constrained deployment rather than of the regression head alone, (iv) aligned the Abstract's accuracy description with the quantified moderate predictive tradeoff, and (v) clarified that the accuracy comparison uses a common equality-only affine alignment for comparator outputs, whereas physical-admissibility diagnostics use their direct raw heads. We also regenerated Figure 4 and the supplementary coefficient atlases from the corrected production analysis. The clean and marked manuscripts contain identical scientific content. Blue markup is reserved for revisions made directly in response to Reviewer 1; ancillary analysis corrections remain uncolored and are disclosed in the relevant responses below.
+
+\section*{Reviewer 1}
+
+\subsection*{Overall assessment}
+
+\begin{reviewercomment}
+Reviewer 1: The author has made substantial structural revisions to address the concerns raised in the first round. The reformulation from CoBRE, the removal of the bilinear state-input term, the relocation of non-negativity enforcement from a target transformation to a deployment-time linear program, the introduction of a deterministic recursive coupled-QP estimator, the explicit inclusion of HRT as an operating input, the broadened Optuna budget (100 trials per model), and the clarification of the ANN architecture together represent a genuine engineering revision. The mathematical contradiction in the original Equation 5 has been eliminated, and the staged deployment rule (raw $\rightarrow$ affine projection $\rightarrow$ LP) is now stated explicitly. These changes resolve the majority of my earlier concerns.
+
+I have, however, two technical points that still require attention before the manuscript can be recommended for publication, and one framing point.
+\end{reviewercomment}
+
+\noindent\textbf{Response.} We sincerely thank the reviewer for recognizing the scope of the first-round revisions and for isolating the remaining technical and framing issues. The new revision addresses both major comments directly and applies the requested accuracy framing consistently across the submission.
+
+\revisionnotice
+
+\subsection*{Major comment 1}
+
+\begin{reviewercomment}
+\textbf{Major comment 1: The symmetry of $\Theta_{cc}$ and $\Theta_{uu}$ is asserted but not demonstrated}
+
+In response to my original R1.33, the authors state that the influent-influent block $\Theta_{cc}$ and the operational-operational block $\Theta_{uu}$ are symmetric ``by construction'' and that no $(\Theta+\Theta^{T})/2$ averaging is therefore required before the heatmaps in Figure 4 and the supplementary atlases can be interpreted cell-by-cell. The claim is consequential: Section 4.4 reads off specific numerical entries ($S_O$-$S_O$ = $-2.3899\times10^{-2}$, $S_O$-$S_{N_2}$ = $-2.1845\times10^{-2}$, $S_O$-$S_{NO_2}$ = $-1.4691\times10^{-2}$) and assigns physical meaning to them.
+
+The text supporting this claim, however, is not adequate as currently written. The Nomenclature lists $\Theta_{cc}\in\mathbb{R}^{F\times F^2}$ and $\Theta_{uu}\in\mathbb{R}^{F\times M_{op}^2}$, i.e., the general non-symmetric parameterization of a second-order tensor vectorized through the Kronecker product. Because $c_{in}\otimes c_{in}$ contains the products $c_i c_j$ and $c_j c_i$ as separate entries that are numerically equal, the effect on each output target is the sum $\theta_{k,ij}+\theta_{k,ji}$. Without an explicit constraint imposed during fitting, that decomposition is not unique: infinitely many $\theta_{k,ij},\theta_{k,ji}$ pairs reproduce the same prediction, so the individual cells of the heatmap have no well-defined physical meaning even though the model fit is perfectly valid.
+
+The response argues that the partitioned feature map and the corresponding driver coefficients are ``organized so that the fitted $\Theta$ blocks satisfy the commutativity-induced symmetry exactly,'' but the manuscript does not actually describe the mechanism that produces this symmetry. The reader cannot determine whether the authors (i) parameterize only the upper-triangular indices and recover the lower-triangular entries by mirroring, (ii) impose $\theta_{k,ij}=\theta_{k,ji}$ as an equality constraint inside the QP, or (iii) project onto the symmetric subspace after each block-coordinate update. Any one of these would resolve the issue; none is currently in the text.
+
+I ask the authors to add an explicit technical sentence to Section 2.3 (or to the corresponding subsection of 2.6) stating how symmetry is enforced, with a one-line justification why this preserves the optimum of the coupled QP. If the code does not in fact enforce symmetry, then either a symmetrization layer must be added or the symmetric average $(\Theta+\Theta^{T})/2$ must be plotted before any cell-level physical interpretation is made in Section 4.4.
+\end{reviewercomment}
+
+\noindent\textbf{Response.} We are grateful to the reviewer for identifying that the previous explanation did not establish coefficient identifiability. We implemented option (iii): after the initial ridge solve and after every recursive $B$ update, every output-specific $\Theta_{uu}$ and $\Theta_{cc}$ slice is explicitly projected onto the symmetric subspace. Focused tests verify exact stored symmetry, unchanged predictions, and a non-increasing ridge-regularized objective.
+
+Section 2.3 now defines the square output-specific reshapes, states the projection, and supplies the requested optimum-preservation proof. Section 2.6 and Pseudocode 1 now state that symmetrization follows every $B$ update, and the Nomenclature identifies both blocks as symmetrized. The Figure 4 caption now states that off-diagonal cells are mirrored and that each displayed off-diagonal cell is half the combined unordered cross-term coefficient. Separately, the coefficient-retention table caption and the paragraph following that table state that retention counts use only unique upper-triangular terms; the heatmap itself continues to display the full mirrored matrix.
+
+During this audit, we also found and corrected a separate extraction error relevant to the reviewer's concern: the former notebook indexed component-space rows of $B$ using reported-composite indices. The revised workflow first constructs the globally defined raw-head reported-output map $I_{comp}\widehat{R}^{-1}\widehat{B}$ and then extracts COD, TN, TP, and TSS blocks. Figure 4, the coefficient-retention table, and Supplementary Figures S1--S4 were regenerated from this corrected production mapping. The corrected COD raw-head values for the three pairs cited by the reviewer are $S_O$--$S_O=-5.8097$, $S_O$--$S_{N2}=-1.7411$, and $S_O$--$S_{NO2}=-9.4127\times10^{-2}$; they supersede the former values. The manuscript explicitly limits these coefficient interpretations to the pre-correction raw head because the final affine/LP map is piecewise and has no single global coefficient matrix.
+
+\revisionnotice
+
+\excerptlocation{Nomenclature}
+\begin{revisionexcerpt}
+Influent--influent driver block ($\Theta_{cc} \in \mathbb{R}^{F \times F^2}$); each output-specific $F \times F$ reshape is symmetrized
+
+Operating--operating driver block ($\Theta_{uu} \in \mathbb{R}^{F \times M_{op}^2}$); each output-specific $M_{op} \times M_{op}$ reshape is symmetrized
+\end{revisionexcerpt}
+
+\excerptlocation{Section 2.3, ``Coupled Second-Order Driver and Prediction-Space Training''}
+\begin{revisionexcerpt}
+For output component $k$, let $Q_{uu}^{(k)} \in \mathbb{R}^{M_{op} \times M_{op}}$ and $Q_{cc}^{(k)} \in \mathbb{R}^{F \times F}$ denote the square reshapes of the corresponding rows of $\Theta_{uu}$ and $\Theta_{cc}$. The full ordered Kronecker map retains both $x_i x_j$ and $x_j x_i$, so after every $B$ update the implementation projects each self-quadratic slice onto the symmetric subspace,
+\begin{equation*}
+Q \leftarrow \operatorname{sym}(Q) = \frac{Q + Q^T}{2},
+\qquad Q \in \left\{Q_{uu}^{(k)},Q_{cc}^{(k)}\right\}_{k=1}^{F}.
+\end{equation*}
+This projection preserves the coupled-QP optimum. For any vector $x$, $x^TQx=x^T\operatorname{sym}(Q)x$, whereas
+\begin{equation*}
+\|Q\|_F^2 = \|\operatorname{sym}(Q)\|_F^2 + \|\operatorname{skew}(Q)\|_F^2.
+\end{equation*}
+Consequently, removing the skew-symmetric part leaves every fitted value unchanged and cannot increase the ridge-regularized objective. Because the reported estimator uses $\lambda_B>0$, the unique ridge solution has zero skew part, so the explicit projection makes the commutativity-induced equality $\theta_{k,ij}=\theta_{k,ji}$ hold to machine precision.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 2.6, ``Deterministic Recursive Coupled-QP Estimation and Modeling Boundaries''}
+\begin{revisionexcerpt}
+For fixed $(\Gamma, \widehat{C})$, the $B$ subproblem is a ridge-regularized linear least-squares solve followed by the prediction-preserving symmetric projection stated in Section~2.3. For fixed $(B, \widehat{C})$, the $\Gamma$ subproblem is a convex box-constrained quadratic program. For fixed $(B, \Gamma)$, the $\widehat{C}$ subproblem is a convex non-negative quadratic program in which invariant mismatch remains a soft quadratic penalty.
+\end{revisionexcerpt}
+
+\excerptlocation{Pseudocode 1}
+\begin{revisionexcerpt}
+compute $B^{(0,s)}$ from the corresponding ridge solve and project every $Q_{uu}^{(k)}$ and $Q_{cc}^{(k)}$ onto the symmetric subspace
+
+update $B^{(t+1,s)}$ via Eq.~(14) and project every $Q_{uu}^{(k)}$ and $Q_{cc}^{(k)}$ onto the symmetric subspace
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.4, ``Interpretable Raw-Head Structure of the Learned ICSOR Model''}
+\begin{revisionexcerpt}
+Coefficient interpretation is performed on the globally defined pre-correction head rather than on the piecewise deployment correction. Since $c_{raw}=\widehat{R}^{-1}\widehat{B}\phi$, its reported-composite counterpart is
+\begin{equation*}
+y_{raw}=I_{comp}c_{raw}=B_{raw,ext}\phi,
+\qquad
+B_{raw,ext}=I_{comp}\widehat{R}^{-1}\widehat{B}.
+\end{equation*}
+Figure~4 presents the COD row's $\Theta_{cc}$ block from $B_{raw,ext}$. The COD, TN, TP, and TSS raw-head atlases are provided as Supplementary Figures S1--S4. This definition corrects the output-space distinction explicitly: rows of $\widehat{B}$ are ASM component-driver rows and cannot be indexed directly by reported-composite labels. The final affine/LP map is active-set dependent and therefore has no single global coefficient matrix; Figure~4 must not be read as a derivative of the final corrected output.
+\end{revisionexcerpt}
+
+\excerptlocation{Figure 4 caption}
+\begin{revisionexcerpt}
+COD raw-head $\Theta_{cc}$ heatmap from $B_{raw,ext}=I_{comp}\widehat{R}^{-1}\widehat{B}$. Rows and columns enumerate influent ASM components. The matrix is symmetric to machine precision; off-diagonal cells are mirrored and each displayed cell is half the coefficient of the corresponding unordered cross term. The full raw-head atlases are reported in Supplementary Figures S1--S4.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.4 coefficient interpretation}
+\begin{revisionexcerpt}
+The corrected COD raw-head surface is exactly symmetric at stored precision. Its largest-magnitude entry is the $S_O$--$S_O$ self-curvature term ($-5.8097$), followed by the mirrored $S_O$--$S_{N2}$ pair ($-1.7411$). Other prominent terms link $S_O$ with $X_{MeP}$ ($2.3190\times10^{-1}$), $X_{AOB}$ ($-1.3264\times10^{-1}$), $S_{PO4}$ ($-1.3055\times10^{-1}$), $X_{NOB}$ ($-1.0182\times10^{-1}$), and $S_{NO2}$ ($-9.4127\times10^{-2}$). Under the ordered Kronecker convention, a displayed off-diagonal value $q_{ij}=q_{ji}$ contributes $(q_{ij}+q_{ji})x_ix_j=2q_{ij}x_ix_j$ to the polynomial, so cell values and combined unordered cross-term coefficients are not interchangeable.
+\end{revisionexcerpt}
+
+\excerptlocation{Coefficient-retention table caption and entries}
+\begin{revisionexcerpt}
+Retained coefficients in the corrected COD raw-head structure. The reported-output blocks use $10^{-4}$ of the largest absolute COD raw-head coefficient ($4.7332\times10^{-3}$); the shared $\Gamma$ block uses $10^{-4}$ of its own largest off-diagonal magnitude ($3.6803\times10^{-5}$). Symmetric quadratic totals count only unique upper-triangular terms.
+
+\begin{center}
+\scriptsize
+\begin{tabular}{lrrr}
+\toprule
+Coefficient block & Total coeffs. & Retained coeffs. & \% Retained \\
+\midrule
+$b$ & 1 & 1 & 100.0 \\
+$W_u$ & 2 & 2 & 100.0 \\
+$W_{in}$ & 20 & 19 & 95.0 \\
+$\Theta_{uu}$ & 3 & 3 & 100.0 \\
+$\Theta_{uc}$ & 40 & 29 & 72.5 \\
+$\Theta_{cc}$ & 210 & 44 & 21.0 \\
+$\Gamma$ & 380 & 371 & 97.6 \\
+Overall summary & 656 & 469 & 71.5 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{revisionexcerpt}
+
+\excerptlocation{Paragraph following the coefficient-retention table}
+\begin{revisionexcerpt}
+Table~12 counts independently interpretable terms rather than duplicated display cells. Thus $\Theta_{uu}$ has $2(2+1)/2=3$ unique terms and $\Theta_{cc}$ has $20(20+1)/2=210$, although their displayed heatmaps contain 4 and 400 cells, respectively. The reporting threshold is post-training only and does not affect model selection, fitting, or deployment. Nineteen of 20 $W_{in}$ entries, all three unique $\Theta_{uu}$ terms, 29 of 40 $\Theta_{uc}$ terms, and 44 of 210 unique $\Theta_{cc}$ terms exceed the COD raw-head threshold; 371 of 380 off-diagonal $\Gamma$ entries exceed the separately scaled coupling threshold. Overall, 469 of 656 unique candidates (71.5\%) are retained. The result indicates selective influent curvature within a comparatively dense coupling structure, not a uniformly sparse model.
+\end{revisionexcerpt}
+
+\excerptlocation{Supplementary material, introductory text governing Figures S1--S4}
+\begin{revisionexcerpt}
+Each atlas presents the reported-target coefficient blocks obtained from the pre-correction raw-head map $I_{comp}(I_F-\Gamma)^{-1}B$: the scalar bias term $b$, the first-order operational block $W_u$, the first-order influent block $W_{in}$, the operational-curvature block $\Theta_{uu}$, and the operation--influent and influent-curvature blocks $\Theta_{uc}$ and $\Theta_{cc}$. The component-space coupling matrix $\Gamma$ is also shown as a shared structural panel. The ASM component basis is kept complete in every applicable panel, and the heatmaps are drawn from the lower origin so the operational axes begin at HRT and then Aeration. These atlases describe the globally defined raw regression head; the final affine/LP deployment map is piecewise and therefore does not have one global coefficient atlas.
+\end{revisionexcerpt}
+
+\excerptlocation{Supplementary Figures S1--S4 captions}
+\begin{revisionexcerpt}
+COD raw-head ICSOR coefficient atlas showing the reported-target blocks of $I_{comp}(I_F-\Gamma)^{-1}B$ together with the shared component-space coupling matrix $\Gamma$. The symmetric $\Theta_{uu}$ and $\Theta_{cc}$ panels display mirrored off-diagonal cells.
+
+TN raw-head ICSOR coefficient atlas showing the reported-target blocks of $I_{comp}(I_F-\Gamma)^{-1}B$ together with the shared component-space coupling matrix $\Gamma$. The symmetric $\Theta_{uu}$ and $\Theta_{cc}$ panels display mirrored off-diagonal cells.
+
+TP raw-head ICSOR coefficient atlas showing the reported-target blocks of $I_{comp}(I_F-\Gamma)^{-1}B$ together with the shared component-space coupling matrix $\Gamma$. The symmetric $\Theta_{uu}$ and $\Theta_{cc}$ panels display mirrored off-diagonal cells.
+
+TSS raw-head ICSOR coefficient atlas showing the reported-target blocks of $I_{comp}(I_F-\Gamma)^{-1}B$ together with the shared component-space coupling matrix $\Gamma$. The symmetric $\Theta_{uu}$ and $\Theta_{cc}$ panels display mirrored off-diagonal cells.
+\end{revisionexcerpt}
+
+\subsection*{Major comment 2}
+
+\begin{reviewercomment}
+\textbf{Major comment 2}
+
+Section 4.3 reports honestly that none of the raw coupled predictions are both invariant-consistent and non-negative (raw conservation compliance 0.0\%, raw non-negativity 21.7\%). The 0\% violation rate is therefore not a property of the learned regression, the regression head itself violates conservation on 100\% of test samples, but of the deployment correction: the affine projection resolves 21.8\% of cases and the LP handles the remaining 78.2\%. The invariant penalty $\lambda_{inv}$ in Equation 7 is a soft regularizer during training; the hard guarantee comes from Equation 12.
+
+The Abstract, Graphical Abstract, and Conclusion currently project the 0\% outcome as if it emerged from the regression. I recommend a brief reframing across these sections so that ICSOR is described as a constrained-deployment surrogate whose regression head is structured to remain compatible with hard conservation correction, together with a single sentence in Section 2.4 stating that the hard guarantee is produced by the deployment correction rather than by the training objective.
+\end{reviewercomment}
+
+\noindent\textbf{Response.} We thank the reviewer for this precise distinction and agree. The Abstract, Highlights, Graphical Abstract, Introduction, Sections 2.3, 2.4, and 2.6, the benchmark and evaluation protocols in Sections 3.3 and 3.5, Sections 4.1--4.4, and the Conclusion now consistently describe ICSOR as an interpretable constrained-deployment surrogate. The regression head is described as invariant-aware but not inherently feasible. Section 2.4 now states explicitly that $\lambda_{inv}$ is a soft regularizer and that the hard guarantee is supplied by the checked affine/LP deployment rule. The accuracy protocol now distinguishes the final ICSOR output from the comparators' common equality-only affine alignment, while physical-admissibility diagnostics compare final ICSOR outputs with direct raw comparator heads. Section 4.3 now states directly that the zero final violation rates belong to the ICSOR deployment map, not to its regression head.
+
+The revised Graphical Abstract uses the exact labels ``Invariant-aware regression head,'' ``soft training penalties,'' ``Hard deployment correction:,'' and ``Raw $\rightarrow$ Affine $\rightarrow$ LP.'' Its outcome panel is headed ``Final deployed outputs:'' and reports ``0\% conservation violations'' and ``0\% non-negativity violations,'' while its accuracy summary reads ``Moderate RMSE tradeoff.''
+
+\revisionnotice
+
+\excerptlocation{Abstract}
+\begin{revisionexcerpt}
+Standard machine-learning surrogates of activated sludge systems can predict effluent composites accurately, yet their component-space predictions need not satisfy exact stoichiometric mass conservation or componentwise non-negativity. This article develops Invariant-Constrained Second-Order Regression (ICSOR) as an interpretable constrained-deployment surrogate. An invariant-aware second-order regression head supplies a raw component-space prediction, while a hierarchical deployment rule---a feasibility check, a closed-form affine invariant projection, and, when required, a linear program---provides the hard conservation and non-negativity guarantees for the returned state. On a 10,000-sample ASM2d-TSN continuous stirred tank reactor benchmark, ICSOR was compared against XGBoost, LightGBM, CatBoost, AdaBoost, Random Forest, support vector regression, $k$-nearest neighbors, partial least squares, and a multilayer perceptron. The checked deployment pipeline yielded zero conservation and non-negativity violations in the final returned test outputs: the affine projection was sufficient for 21.8\% of cases and the linear program corrected the remaining 78.2\%. As a diagnostic note on this deployment performance, none of the raw coupled test predictions was conservation-compliant, although 21.7\% was non-negative, confirming that hard feasibility arose from the correction stages rather than from the regression head alone.
+\end{revisionexcerpt}
+
+\excerptlocation{Highlights}
+\begin{revisionexcerpt}
+ICSOR couples invariant-aware regression with hard constrained deployment.
+
+Affine/LP correction yields zero violations in final deployed test outputs.
+
+Hard feasibility is obtained with a moderate fixed-split RMSE tradeoff.
+\end{revisionexcerpt}
+
+\excerptlocation{Graphical Abstract labels}
+\begin{revisionexcerpt}
+Invariant-aware regression head
+
+soft training penalties
+
+Hard deployment correction:
+
+Raw $\rightarrow$ Affine $\rightarrow$ LP
+
+Final deployed outputs:
+
+0\% conservation violations
+
+0\% non-negativity violations
+
+Moderate RMSE tradeoff
+\end{revisionexcerpt}
+
+\excerptlocation{Introduction}
+\begin{revisionexcerpt}
+This study addresses that need through the development of Invariant-Constrained Second-Order Regression (ICSOR), an interpretable constrained-deployment surrogate for steady-state activated sludge systems. ICSOR is designed to answer a practical question: given a steady-state influent condition and operating point, what effluent state should be returned when deployment requires physical admissibility? Its regression head is invariant-aware rather than inherently feasible: soft training penalties shape the raw component-space predictor, and a checked affine/LP correction supplies the hard conservation and non-negativity guarantee for the state returned to the user.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 2.3, training-objective interpretation}
+\begin{revisionexcerpt}
+Each term has a distinct role. The first term fits effluent ASM components directly. The second softly penalizes invariant mismatch in component space; it is not a hard equality constraint. The third encourages consistency between the fitted states and the coupled driver relation. The ridge penalties stabilize the driver and coupling estimates, and the positive $B$ ridge penalty also selects the symmetric minimum-norm representative of each duplicated ordered quadratic pair.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 2.4, ``Deployment-Time Inference with Exact Conservation and Non-Negativity''}
+\begin{revisionexcerpt}
+Equation~(12) is the final correction branch of the checked deployment rule.
+
+The hard feasibility guarantee is produced by this checked deployment rule, not by the training objective. In particular, the $\lambda_{inv}$ term in Eq.~(7) is a soft regularizer and does not guarantee that $c_{raw}$ satisfies $Ac_{raw}=Ac_{in,*}$. A raw or affine state is returned only after it passes the applicable feasibility checks; otherwise Eq.~(12) imposes $Ac=Ac_{in,*}$ and $c\geq 0$ jointly. Because the physically admissible $c_{in,*}$ is itself feasible under the adopted component basis, the LP feasible set is nonempty.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 2.6, estimator description}
+\begin{revisionexcerpt}
+For fixed $(B, \Gamma)$, the $\widehat{C}$ subproblem is a convex non-negative quadratic program in which invariant mismatch remains a soft quadratic penalty.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 3.3, benchmark protocol}
+\begin{revisionexcerpt}
+ICSOR differs in two distinct respects that should not be conflated: its regression head is trained with soft invariant and coupled-system penalties and a non-negative auxiliary fitted state, while exact conservation and non-negativity are imposed only on the final state returned by its deployment correction.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 3.5, predictive-accuracy evaluation protocol}
+\begin{revisionexcerpt}
+For the predictive-accuracy comparison, ICSOR was evaluated at its final checked deployment output. The comparator regressors were evaluated after the benchmark's common equality-only affine alignment, followed by the same external composition map; this alignment enforces the reporting invariants but does not impose component non-negativity and is not the ICSOR LP. Raw-head physical-admissibility frequencies are reported separately so that this numerical alignment is not mistaken for a property learned by an unconstrained regressor.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 3.5, physical-admissibility evaluation protocol}
+\begin{revisionexcerpt}
+Physical-admissibility diagnostics were evaluated before external composition collapse. To distinguish learned feasibility from post-processing, Table~11 uses the final checked ICSOR output but the direct raw-head output of each unconstrained comparator; Section~4.3 reports the raw, affine, and final ICSOR stages separately.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.1, ``Overall Benchmark Performance on the Fixed Train-Test Split''}
+\begin{revisionexcerpt}
+In terms of predictive accuracy on the fixed split, the MLP attains the lowest error among the retained baselines and LightGBM attains the lowest among the tree-based methods. ICSOR does not attain the lowest aggregate RMSE: its final corrected outputs give 5.98, which is 36.5\% higher than the MLP value of 4.38 and 12.8\% higher than the LightGBM value of 5.30. ICSOR remains within 0.01 of SVR and below XGBoost and CatBoost. These results define a moderate accuracy--feasibility tradeoff. Under the stated reporting protocol, the comparator values include the common equality-only affine alignment but no LP non-negativity correction, whereas ICSOR is evaluated after its complete checked deployment rule.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.1 benchmark-table caption and revised XGBoost row}
+\begin{revisionexcerpt}
+Fixed-split 80--20 test performance in the reported-composite space. ICSOR is evaluated after its checked deployment rule; comparator predictions receive the benchmark's common equality-only affine alignment before external composition collapse.
+
+\begin{center}
+\scriptsize
+\begin{tabular}{lcccc}
+Model & RMSE & MAE & $R^2$ & MAPE \\
+XGBoost & 6.12 & 3.81 & 0.9733 & 0.0244 \\
+\end{tabular}
+\end{center}
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.1 per-target discussion and table entries}
+\begin{revisionexcerpt}
+Table~9 indicates that the aggregate ordering is driven primarily by COD, TN, and TSS. The MLP attains the lowest RMSE on all three of those composites, while LightGBM attains the lowest among the non-neural methods. On COD alone, ICSOR (RMSE 7.77) is 0.18 above LightGBM and below XGBoost, CatBoost, SVR, and the remaining baselines. Its larger TN and TSS errors, however, prevent that COD performance from translating into a correspondingly favorable aggregate rank. TP contributes negligibly to model differentiation: the equality-aligned reported outputs give an RMSE of 0.0361 for every retained method. The per-target decomposition therefore suggests that, once phosphorus prediction is effectively saturated, the observable model separation arises from carbon, nitrogen, and suspended-solids behavior.
+
+\begin{center}
+\scriptsize
+\begin{tabular}{lcccc}
+Model & COD & TN & TP & TSS \\
+MLP & 6.48 & 1.58 & 0.0361 & 5.66 \\
+LightGBM & 7.59 & 2.77 & 0.0361 & 6.85 \\
+SVR & 8.87 & 3.50 & 0.0361 & 7.20 \\
+ICSOR & 7.77 & 3.55 & 0.0361 & 8.36 \\
+XGBoost & 8.78 & 3.27 & 0.0361 & 7.88 \\
+CatBoost & 9.13 & 3.23 & 0.0361 & 8.53 \\
+AdaBoost & 38.30 & 5.58 & 0.0361 & 17.68 \\
+$k$-NN & 38.24 & 4.23 & 0.0361 & 27.37 \\
+PLS & 43.22 & 5.09 & 0.0361 & 36.00 \\
+Random Forest & 45.87 & 4.00 & 0.0361 & 35.26 \\
+\end{tabular}
+\end{center}
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.2, ``Sample Efficiency, Ranking Stability, and Generalization''}
+\begin{revisionexcerpt}
+The generalization behavior observed in Table~10 warrants separate attention. The train--validation RMSE gap of ICSOR at the largest retained dataset size is 0.22, lower than those of LightGBM (1.99), XGBoost (1.44), SVR (1.19), and the MLP (0.65). PLS also exhibits a small gap (0.38), but its training and held-out errors are both large, consistent with high-bias underfitting and prior evidence that linear PLS can mis-specify strongly nonlinear wastewater behavior (Geman et al., 1992; Woo et al., 2009). The repeated-size analysis therefore indicates comparatively small train--validation separation for ICSOR, while the fixed-split results in Section~4.1 still show the moderate absolute accuracy tradeoff relative to the MLP and LightGBM.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.3, ``Physical Admissibility and Deployment Behavior''}
+\begin{revisionexcerpt}
+Table~11 reports the final checked ICSOR output alongside the direct raw-head outputs of the unconstrained comparators. The ICSOR deployment pipeline is the only retained pipeline that produces 0.0\% mass-conservation violations and 0.0\% non-negativity violations on the reported component-space test predictions. Every unconstrained baseline raw head violates conservation on 100\% of the test samples. Non-negativity violation frequencies vary across models, ranging from 0.0\% for AdaBoost, Random Forest, and $k$-NN to 70.1\% for CatBoost, 68.65\% for SVR, 64.95\% for XGBoost, 58.2\% for the MLP, 48.7\% for PLS, and 46.0\% for LightGBM.
+
+Physical-admissibility violation frequencies for the final checked ICSOR output and the direct raw-head outputs of the unconstrained comparators. Mass conservation and non-negativity are assessed before external composition collapse.
+
+\begin{center}
+\scriptsize
+\begin{tabular}{lp{4.0cm}p{4.0cm}}
+Model & Mass-Conservation Violations (\%) & Non-Negativity Violations (\%) \\
+XGBoost & 100.0 & 64.95 \\
+\end{tabular}
+\end{center}
+
+The staged deployment logic can also be examined at the level of individual correction stages. None of the raw coupled test predictions was simultaneously invariant-consistent and non-negative: raw feasibility was 0.0\%, raw conservation compliance was 0.0\%, and 21.7\% of raw states was non-negative. The closed-form affine projection restored invariants for all samples and was itself sufficient for 21.8\% of the test set (436 of 2000 samples), resolving those cases without invoking a numerical optimizer. The remaining 78.2\% (1564 samples) required the final LP correction, which converged in a mean of 23.5 HiGHS iterations with a maximum of 40. The final returned prediction was feasible for 100\% of the test cases. Thus, the zero final violation rates are properties of the constrained deployment map, not of the learned regression head in isolation.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.4, raw-head framing}
+\begin{revisionexcerpt}
+This coefficient-level view differs from PLS loadings and local ANN sensitivity analysis because the ICSOR raw head exposes named global blocks for operating effects, loading effects, within-subspace curvature, and cross-component coupling. The values are shaped by invariant-aware soft training and the coupled non-negative fitted-state variable, but raw-head feasibility is not guaranteed. Exact physical admissibility is imposed afterward by constrained deployment. The coefficient blocks therefore support transparent structural inspection without implying that the raw head is itself feasible.
+\end{revisionexcerpt}
+
+\excerptlocation{Conclusion}
+\begin{revisionexcerpt}
+This study developed Invariant-Constrained Second-Order Regression (ICSOR) as an interpretable constrained-deployment surrogate for steady-state activated sludge systems. Its invariant-aware regression head is not inherently feasible: none of the raw coupled test predictions satisfied conservation. Exact stoichiometric conservation and componentwise non-negativity are instead guaranteed for the final returned state by a hierarchical deployment rule consisting of a raw feasibility check, a closed-form affine invariant projection, and, when necessary, a linear program. The affine stage was sufficient for 21.8\% of test cases and the LP corrected the remaining 78.2\%, yielding zero final conservation and non-negativity violations. Every unconstrained baseline violated conservation on all test samples, and several also produced negative component concentrations.
+\end{revisionexcerpt}
+
+\subsection*{Minor comment}
+
+\begin{reviewercomment}
+\textbf{Minor comment}
+
+ICSOR's aggregate test RMSE of 5.98 is 36\% higher than the MLP's 4.38 and 13\% higher than LightGBM's 5.30. Calling this ``competitive aggregate accuracy'' in the Abstract is generous; the Conclusion describes the same result more carefully as a ``moderate predictive tradeoff.'' I recommend aligning the Abstract with the more careful framing in the Conclusion so that the reader is not surprised by the accuracy gap when reaching Section 4.1.
+\end{reviewercomment}
+
+\noindent\textbf{Response.} We appreciate the reviewer's recommendation and have adopted the more cautious framing. The Abstract no longer claims ``competitive aggregate accuracy.'' It now reports the three RMSE values directly and describes the result as a moderate fixed-split predictive tradeoff. Section 4.1 quantifies the gaps as 36.5\% relative to the MLP and 12.8\% relative to LightGBM under the stated reporting protocol, in which comparator values include the common equality-only affine alignment but no LP non-negativity correction; the Conclusion uses the same moderate-tradeoff description.
+
+\revisionnotice
+
+\excerptlocation{Abstract}
+\begin{revisionexcerpt}
+This hard-feasibility outcome involved a moderate fixed-split predictive tradeoff: aggregate test RMSE was 5.98, compared with 4.38 for the multilayer perceptron and 5.30 for LightGBM.
+\end{revisionexcerpt}
+
+\excerptlocation{Section 4.1, ``Overall Benchmark Performance on the Fixed Train-Test Split''}
+\begin{revisionexcerpt}
+ICSOR does not attain the lowest aggregate RMSE: its final corrected outputs give 5.98, which is 36.5\% higher than the MLP value of 4.38 and 12.8\% higher than the LightGBM value of 5.30. ICSOR remains within 0.01 of SVR and below XGBoost and CatBoost. These results define a moderate accuracy--feasibility tradeoff. Under the stated reporting protocol, the comparator values include the common equality-only affine alignment but no LP non-negativity correction, whereas ICSOR is evaluated after its complete checked deployment rule.
+\end{revisionexcerpt}
+
+\excerptlocation{Conclusion}
+\begin{revisionexcerpt}
+These deployment-stage guarantees were obtained with a moderate predictive tradeoff. On the fixed 80--20 split, ICSOR attained an aggregate test RMSE of 5.98 in the reported composite space, 36.5\% above the MLP value of 4.38 and 12.8\% above the LightGBM value of 5.30.
+\end{revisionexcerpt}
+
+\subsection*{Acceptance condition}
+
+\begin{reviewercomment}
+Conditional on Major comments 1 and 2 being addressed, the manuscript will be in shape for acceptance.
+\end{reviewercomment}
+
+\noindent\textbf{Response.} We sincerely thank the reviewer for this assessment. We have addressed both major comments in the estimator, analysis workflow, manuscript, figures, supplementary material, and marked revision, and we hope the revised submission now meets the standard for acceptance.
+
+\revisionnotice
+
+\end{document}

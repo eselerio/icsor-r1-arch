@@ -14,11 +14,13 @@ from sklearn.metrics import r2_score
 from src.models.ml.icsor import build_icsor_design_frame
 from src.models.ml.icsor_coupled_qp import (
     _build_deployment_lp_template,
+    _compute_training_objective_terms,
     _run_coupled_qp_restart,
     _resolve_coupled_qp_settings,
     _solve_single_deployment_lp,
     _solve_chat_update,
     _solve_gamma_update,
+    _symmetrize_quadratic_coefficient_blocks,
     load_icsor_coupled_qp_params,
     predict_icsor_coupled_qp_model,
     run_icsor_coupled_qp_pipeline,
@@ -225,8 +227,13 @@ class IcsorCoupledQpModelTests(unittest.TestCase):
         conditioning = float(training_result["best_restart_summary"]["conditioning"])
         conditioning_max = float(params["training_defaults"]["conditioning_max"])
         fitted_predictions = training_result["fitted_predictions"].to_numpy(dtype=float)
+        b_matrix = np.asarray(training_result["B_matrix"], dtype=float)
 
         np.testing.assert_allclose(np.diag(gamma_matrix), np.zeros(gamma_matrix.shape[0]), atol=1e-10)
+        np.testing.assert_array_equal(
+            b_matrix,
+            _symmetrize_quadratic_coefficient_blocks(b_matrix, training_result["design_schema"]),
+        )
         self.assertLessEqual(float(np.max(np.abs(gamma_matrix))), float(params["training_defaults"]["gamma_abs_bound"]) + 1e-7)
         self.assertLessEqual(conditioning, conditioning_max + 1e-6)
         self.assertGreaterEqual(
@@ -289,7 +296,7 @@ class IcsorCoupledQpModelTests(unittest.TestCase):
             _resolve_coupled_qp_settings({"objective_regression_slope_tolerance": -1e-6})
 
     def test_restart_stops_when_objective_regression_indicator_flattens(self) -> None:
-        design_frame, _ = build_icsor_design_frame(
+        design_frame, design_schema = build_icsor_design_frame(
             self.icsor_dataset.features,
             list(self.icsor_dataset.constraint_reference.columns),
             include_bias_term=True,
@@ -312,6 +319,7 @@ class IcsorCoupledQpModelTests(unittest.TestCase):
             self.icsor_dataset.constraint_reference.to_numpy(dtype=float),
             self.a_matrix,
             settings,
+            design_schema=design_schema,
             initial_gamma=np.zeros((self.icsor_dataset.targets.shape[1], self.icsor_dataset.targets.shape[1]), dtype=float),
         )
 
@@ -328,6 +336,72 @@ class IcsorCoupledQpModelTests(unittest.TestCase):
         convergence_history = list(restart_result["convergence_history"])
         self.assertEqual(len(convergence_history), 1)
         self.assertTrue(bool(convergence_history[0]["window_active"]))
+
+    def test_quadratic_block_symmetrization_preserves_predictions_and_reduces_ridge_objective(self) -> None:
+        design_frame, design_schema = build_icsor_design_frame(
+            self.icsor_dataset.features,
+            list(self.icsor_dataset.constraint_reference.columns),
+            include_bias_term=True,
+        )
+        design_matrix = design_frame.to_numpy(dtype=float)
+        target_matrix = self.icsor_dataset.targets.to_numpy(dtype=float)
+        influent_matrix = self.icsor_dataset.constraint_reference.to_numpy(dtype=float)
+        rng = np.random.default_rng(712)
+        b_matrix = rng.normal(size=(target_matrix.shape[1], design_matrix.shape[1]))
+        gamma_matrix = np.zeros((target_matrix.shape[1], target_matrix.shape[1]), dtype=float)
+        fitted_predictions = np.maximum(target_matrix + rng.normal(scale=0.01, size=target_matrix.shape), 0.0)
+        settings = _resolve_coupled_qp_settings({"lambda_B": 0.75, "lambda_sys": 1.25})
+
+        symmetric_b_matrix = _symmetrize_quadratic_coefficient_blocks(b_matrix, design_schema)
+
+        for block_name, dimension_name in (
+            ("quadratic_operational", "operational"),
+            ("quadratic_influent", "influent"),
+        ):
+            block_range = design_schema["block_ranges"][block_name]
+            matrix_dimension = int(design_schema["dimensions"][dimension_name])
+            block_matrices = symmetric_b_matrix[
+                :,
+                int(block_range["start"]) : int(block_range["stop"]),
+            ].reshape(target_matrix.shape[1], matrix_dimension, matrix_dimension)
+            np.testing.assert_array_equal(block_matrices, block_matrices.transpose(0, 2, 1))
+
+        np.testing.assert_allclose(
+            design_matrix @ symmetric_b_matrix.T,
+            design_matrix @ b_matrix.T,
+            atol=1e-11,
+            rtol=1e-11,
+        )
+        self.assertLess(float(np.sum(symmetric_b_matrix**2)), float(np.sum(b_matrix**2)))
+
+        original_terms = _compute_training_objective_terms(
+            target_matrix,
+            influent_matrix,
+            self.a_matrix,
+            design_matrix,
+            b_matrix,
+            gamma_matrix,
+            fitted_predictions,
+            settings,
+        )
+        symmetric_terms = _compute_training_objective_terms(
+            target_matrix,
+            influent_matrix,
+            self.a_matrix,
+            design_matrix,
+            symmetric_b_matrix,
+            gamma_matrix,
+            fitted_predictions,
+            settings,
+        )
+        np.testing.assert_allclose(
+            original_terms["system_term"],
+            symmetric_terms["system_term"],
+            atol=1e-9,
+            rtol=1e-14,
+        )
+        self.assertLess(symmetric_terms["b_regularization"], original_terms["b_regularization"])
+        self.assertLess(symmetric_terms["objective"], original_terms["objective"])
 
     def test_chat_update_screening_all_interior_skips_osqp_rows(self) -> None:
         target_matrix = np.array(
