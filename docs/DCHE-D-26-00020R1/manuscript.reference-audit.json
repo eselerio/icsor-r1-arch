@@ -1,0 +1,1536 @@
+﻿{
+    "TexFile":  "C:\\Users\\eselerio\\Projects\\icsor-r1-arch\\docs\\DCHE-D-26-00020R1\\manuscript.tex",
+    "SourceRoot":  "C:\\Users\\eselerio\\Projects\\icsor-r1-arch\\docs\\DCHE-D-26-00020R1",
+    "ProjectRoot":  "C:/Users/eselerio/Projects/icsor-r1-arch",
+    "Edited":  false,
+    "RemovedUnverifiedMode":  false,
+    "TotalBodyCitations":  71,
+    "TotalReferencesBefore":  71,
+    "TotalReferencesAfter":  71,
+    "BodyCitations":  [
+                          {
+                              "Surname":  "Aboagye",
+                              "NormalizedSurname":  "aboagye",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Aboagye et al., 2021"
+                          },
+                          {
+                              "Surname":  "Ahn",
+                              "NormalizedSurname":  "ahn",
+                              "Year":  "2014",
+                              "YearBase":  "2014",
+                              "Source":  "Ahn et al., 2014"
+                          },
+                          {
+                              "Surname":  "Akiba",
+                              "NormalizedSurname":  "akiba",
+                              "Year":  "2019",
+                              "YearBase":  "2019",
+                              "Source":  "Akiba et al., 2019"
+                          },
+                          {
+                              "Surname":  "Araujo",
+                              "NormalizedSurname":  "araujo",
+                              "Year":  "2013",
+                              "YearBase":  "2013",
+                              "Source":  "de Araujo et al., 2013"
+                          },
+                          {
+                              "Surname":  "Asadi",
+                              "NormalizedSurname":  "asadi",
+                              "Year":  "2017",
+                              "YearBase":  "2017",
+                              "Source":  "Asadi et al., 2017"
+                          },
+                          {
+                              "Surname":  "Ba-Alawi",
+                              "NormalizedSurname":  "baalawi",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Ba-Alawi et al., 2021"
+                          },
+                          {
+                              "Surname":  "Bagherzadeh",
+                              "NormalizedSurname":  "bagherzadeh",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Bagherzadeh et al., 2021"
+                          },
+                          {
+                              "Surname":  "Bergstra",
+                              "NormalizedSurname":  "bergstra",
+                              "Year":  "2011",
+                              "YearBase":  "2011",
+                              "Source":  "Bergstra et al., 2011"
+                          },
+                          {
+                              "Surname":  "Beucler",
+                              "NormalizedSurname":  "beucler",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Beucler et al., 2021"
+                          },
+                          {
+                              "Surname":  "Bhosekar",
+                              "NormalizedSurname":  "bhosekar",
+                              "Year":  "2018",
+                              "YearBase":  "2018",
+                              "Source":  "Bhosekar \u0026 Ierapetritou, 2018"
+                          },
+                          {
+                              "Surname":  "Brunton",
+                              "NormalizedSurname":  "brunton",
+                              "Year":  "2016",
+                              "YearBase":  "2016",
+                              "Source":  "Brunton et al., 2016"
+                          },
+                          {
+                              "Surname":  "Cawley",
+                              "NormalizedSurname":  "cawley",
+                              "Year":  "2011",
+                              "YearBase":  "2011",
+                              "Source":  "Cawley, 2011"
+                          },
+                          {
+                              "Surname":  "Croll",
+                              "NormalizedSurname":  "croll",
+                              "Year":  "2023",
+                              "YearBase":  "2023",
+                              "Source":  "Croll et al., 2023"
+                          },
+                          {
+                              "Surname":  "Curtiss",
+                              "NormalizedSurname":  "curtiss",
+                              "Year":  "1952",
+                              "YearBase":  "1952",
+                              "Source":  "Curtiss \u0026 Hirschfelder, 1952"
+                          },
+                          {
+                              "Surname":  "Demsar",
+                              "NormalizedSurname":  "demsar",
+                              "Year":  "2006",
+                              "YearBase":  "2006",
+                              "Source":  "Demsar, 2006"
+                          },
+                          {
+                              "Surname":  "Duan",
+                              "NormalizedSurname":  "duan",
+                              "Year":  "2022",
+                              "YearBase":  "2022",
+                              "Source":  "Duan et al., 2022"
+                          },
+                          {
+                              "Surname":  "Durkin",
+                              "NormalizedSurname":  "durkin",
+                              "Year":  "2024",
+                              "YearBase":  "2024",
+                              "Source":  "Durkin et al., 2024"
+                          },
+                          {
+                              "Surname":  "Fang",
+                              "NormalizedSurname":  "fang",
+                              "Year":  "2011",
+                              "YearBase":  "2011",
+                              "Source":  "Fang et al., 2011"
+                          },
+                          {
+                              "Surname":  "Geiss",
+                              "NormalizedSurname":  "geiss",
+                              "Year":  "2022",
+                              "YearBase":  "2022",
+                              "Source":  "Geiss et al., 2022"
+                          },
+                          {
+                              "Surname":  "Geman",
+                              "NormalizedSurname":  "geman",
+                              "Year":  "1992",
+                              "YearBase":  "1992",
+                              "Source":  "Geman et al., 1992"
+                          },
+                          {
+                              "Surname":  "Guerrero",
+                              "NormalizedSurname":  "guerrero",
+                              "Year":  "2011",
+                              "YearBase":  "2011",
+                              "Source":  "Guerrero et al. (2011)"
+                          },
+                          {
+                              "Surname":  "Guyon",
+                              "NormalizedSurname":  "guyon",
+                              "Year":  "2011",
+                              "YearBase":  "2011",
+                              "Source":  "Guyon et al., 2011"
+                          },
+                          {
+                              "Surname":  "Hansen",
+                              "NormalizedSurname":  "hansen",
+                              "Year":  "2024",
+                              "YearBase":  "2024",
+                              "Source":  "Hansen et al., 2024"
+                          },
+                          {
+                              "Surname":  "Harder",
+                              "NormalizedSurname":  "harder",
+                              "Year":  "2022",
+                              "YearBase":  "2022",
+                              "Source":  "Harder et al., 2022"
+                          },
+                          {
+                              "Surname":  "Henze",
+                              "NormalizedSurname":  "henze",
+                              "Year":  "1999",
+                              "YearBase":  "1999",
+                              "Source":  "Henze et al., 1999"
+                          },
+                          {
+                              "Surname":  "Henze",
+                              "NormalizedSurname":  "henze",
+                              "Year":  "2006",
+                              "YearBase":  "2006",
+                              "Source":  "Henze et al., 2006"
+                          },
+                          {
+                              "Surname":  "Huangfu",
+                              "NormalizedSurname":  "huangfu",
+                              "Year":  "2018",
+                              "YearBase":  "2018",
+                              "Source":  "Huangfu \u0026 Hall, 2018"
+                          },
+                          {
+                              "Surname":  "Khatri",
+                              "NormalizedSurname":  "khatri",
+                              "Year":  "2020",
+                              "YearBase":  "2020",
+                              "Source":  "Khatri et al., 2020"
+                          },
+                          {
+                              "Surname":  "Kim",
+                              "NormalizedSurname":  "kim",
+                              "Year":  "2009",
+                              "YearBase":  "2009",
+                              "Source":  "Kim et al., 2009"
+                          },
+                          {
+                              "Surname":  "Kircher",
+                              "NormalizedSurname":  "kircher",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Kircher \u0026 Votsmeier, 2025"
+                          },
+                          {
+                              "Surname":  "Li",
+                              "NormalizedSurname":  "li",
+                              "Year":  "2020",
+                              "YearBase":  "2020",
+                              "Source":  "Li et al., 2020"
+                          },
+                          {
+                              "Surname":  "Lim",
+                              "NormalizedSurname":  "lim",
+                              "Year":  "2011",
+                              "YearBase":  "2011",
+                              "Source":  "Lim et al., 2011"
+                          },
+                          {
+                              "Surname":  "Lin",
+                              "NormalizedSurname":  "lin",
+                              "Year":  "2022",
+                              "YearBase":  "2022",
+                              "Source":  "Lin et al., 2022"
+                          },
+                          {
+                              "Surname":  "Liu",
+                              "NormalizedSurname":  "liu",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Liu et al., 2021"
+                          },
+                          {
+                              "Surname":  "Machado",
+                              "NormalizedSurname":  "machado",
+                              "Year":  "2014",
+                              "YearBase":  "2014",
+                              "Source":  "Machado et al., 2014"
+                          },
+                          {
+                              "Surname":  "Madhav",
+                              "NormalizedSurname":  "madhav",
+                              "Year":  "2020",
+                              "YearBase":  "2020",
+                              "Source":  "Madhav et al., 2020"
+                          },
+                          {
+                              "Surname":  "Mao",
+                              "NormalizedSurname":  "mao",
+                              "Year":  "2024",
+                              "YearBase":  "2024",
+                              "Source":  "Mao et al., 2024"
+                          },
+                          {
+                              "Surname":  "McKay",
+                              "NormalizedSurname":  "mckay",
+                              "Year":  "1979",
+                              "YearBase":  "1979",
+                              "Source":  "McKay et al., 1979"
+                          },
+                          {
+                              "Surname":  "Min",
+                              "NormalizedSurname":  "min",
+                              "Year":  "2024",
+                              "YearBase":  "2024",
+                              "Source":  "Min et al., 2024"
+                          },
+                          {
+                              "Surname":  "Nazlabadi",
+                              "NormalizedSurname":  "nazlabadi",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Nazlabadi et al., 2021"
+                          },
+                          {
+                              "Surname":  "Newhart",
+                              "NormalizedSurname":  "newhart",
+                              "Year":  "2019",
+                              "YearBase":  "2019",
+                              "Source":  "Newhart et al., 2019"
+                          },
+                          {
+                              "Surname":  "Padron-Paez",
+                              "NormalizedSurname":  "padronpaez",
+                              "Year":  "2020",
+                              "YearBase":  "2020",
+                              "Source":  "Padron-Paez et al., 2020"
+                          },
+                          {
+                              "Surname":  "Pinheiro",
+                              "NormalizedSurname":  "pinheiro",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Pinheiro et al., 2025"
+                          },
+                          {
+                              "Surname":  "Raissi",
+                              "NormalizedSurname":  "raissi",
+                              "Year":  "2019",
+                              "YearBase":  "2019",
+                              "Source":  "Raissi et al., 2019"
+                          },
+                          {
+                              "Surname":  "Razaviyayn",
+                              "NormalizedSurname":  "razaviyayn",
+                              "Year":  "2013",
+                              "YearBase":  "2013",
+                              "Source":  "Razaviyayn et al., 2013"
+                          },
+                          {
+                              "Surname":  "Ruckstuhl",
+                              "NormalizedSurname":  "ruckstuhl",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Ruckstuhl et al., 2021"
+                          },
+                          {
+                              "Surname":  "Rudin",
+                              "NormalizedSurname":  "rudin",
+                              "Year":  "2019",
+                              "YearBase":  "2019",
+                              "Source":  "Rudin, 2019"
+                          },
+                          {
+                              "Surname":  "Sadeghassadi",
+                              "NormalizedSurname":  "sadeghassadi",
+                              "Year":  "2018",
+                              "YearBase":  "2018",
+                              "Source":  "Sadeghassadi et al., 2018"
+                          },
+                          {
+                              "Surname":  "Sadri",
+                              "NormalizedSurname":  "sadri",
+                              "Year":  "2023",
+                              "YearBase":  "2023",
+                              "Source":  "Sadri Moghaddam \u0026 Mesghali, 2023"
+                          },
+                          {
+                              "Surname":  "Shen",
+                              "NormalizedSurname":  "shen",
+                              "Year":  "2023",
+                              "YearBase":  "2023",
+                              "Source":  "Shen et al., 2023"
+                          },
+                          {
+                              "Surname":  "Shevchenko",
+                              "NormalizedSurname":  "shevchenko",
+                              "Year":  "2024",
+                              "YearBase":  "2024",
+                              "Source":  "Shevchenko et al., 2024"
+                          },
+                          {
+                              "Surname":  "Stellato",
+                              "NormalizedSurname":  "stellato",
+                              "Year":  "2018",
+                              "YearBase":  "2018",
+                              "Source":  "Stellato et al., 2018"
+                          },
+                          {
+                              "Surname":  "Stenstrom",
+                              "NormalizedSurname":  "stenstrom",
+                              "Year":  "1991",
+                              "YearBase":  "1991",
+                              "Source":  "Stenstrom \u0026 Song, 1991"
+                          },
+                          {
+                              "Surname":  "Straus",
+                              "NormalizedSurname":  "straus",
+                              "Year":  "2018",
+                              "YearBase":  "2018",
+                              "Source":  "Straus \u0026 Skogestad, 2018"
+                          },
+                          {
+                              "Surname":  "Sturm",
+                              "NormalizedSurname":  "sturm",
+                              "Year":  "2020",
+                              "YearBase":  "2020",
+                              "Source":  "Sturm \u0026 Wexler, 2020, 2022"
+                          },
+                          {
+                              "Surname":  "Sturm",
+                              "NormalizedSurname":  "sturm",
+                              "Year":  "2022",
+                              "YearBase":  "2022",
+                              "Source":  "Sturm \u0026 Wexler, 2020, 2022"
+                          },
+                          {
+                              "Surname":  "Sturm",
+                              "NormalizedSurname":  "sturm",
+                              "Year":  "2023",
+                              "YearBase":  "2023",
+                              "Source":  "Sturm et al. (2023)"
+                          },
+                          {
+                              "Surname":  "Sturm",
+                              "NormalizedSurname":  "sturm",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Sturm \u0026 Silva, 2025"
+                          },
+                          {
+                              "Surname":  "Tang",
+                              "NormalizedSurname":  "tang",
+                              "Year":  "2026",
+                              "YearBase":  "2026",
+                              "Source":  "Tang et al., 2026"
+                          },
+                          {
+                              "Surname":  "Tsochatzidi",
+                              "NormalizedSurname":  "tsochatzidi",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Tsochatzidi et al., 2025"
+                          },
+                          {
+                              "Surname":  "Utkarsh",
+                              "NormalizedSurname":  "utkarsh",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Utkarsh et al., 2025"
+                          },
+                          {
+                              "Surname":  "Viering",
+                              "NormalizedSurname":  "viering",
+                              "Year":  "2023",
+                              "YearBase":  "2023",
+                              "Source":  "Viering \u0026 Loog, 2023"
+                          },
+                          {
+                              "Surname":  "Wang",
+                              "NormalizedSurname":  "wang",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Wang et al., 2025"
+                          },
+                          {
+                              "Surname":  "Wentzel",
+                              "NormalizedSurname":  "wentzel",
+                              "Year":  "1992",
+                              "YearBase":  "1992",
+                              "Source":  "Wentzel et al., 1992"
+                          },
+                          {
+                              "Surname":  "Wold",
+                              "NormalizedSurname":  "wold",
+                              "Year":  "2001",
+                              "YearBase":  "2001",
+                              "Source":  "Wold et al., 2001"
+                          },
+                          {
+                              "Surname":  "Woo",
+                              "NormalizedSurname":  "woo",
+                              "Year":  "2009",
+                              "YearBase":  "2009",
+                              "Source":  "Woo et al., 2009"
+                          },
+                          {
+                              "Surname":  "Xiao",
+                              "NormalizedSurname":  "xiao",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Xiao et al., 2025"
+                          },
+                          {
+                              "Surname":  "Yang",
+                              "NormalizedSurname":  "yang",
+                              "Year":  "2014",
+                              "YearBase":  "2014",
+                              "Source":  "Yang et al., 2014"
+                          },
+                          {
+                              "Surname":  "Yang",
+                              "NormalizedSurname":  "yang",
+                              "Year":  "2021",
+                              "YearBase":  "2021",
+                              "Source":  "Yang et al., 2021"
+                          },
+                          {
+                              "Surname":  "Yang",
+                              "NormalizedSurname":  "yang",
+                              "Year":  "2025",
+                              "YearBase":  "2025",
+                              "Source":  "Yang et al., 2025"
+                          },
+                          {
+                              "Surname":  "Yilmaz",
+                              "NormalizedSurname":  "yilmaz",
+                              "Year":  "2007",
+                              "YearBase":  "2007",
+                              "Source":  "Yilmaz et al., 2007"
+                          }
+                      ],
+    "MissingBodyCitations":  [
+                                 {
+                                     "Surname":  "Araujo",
+                                     "NormalizedSurname":  "araujo",
+                                     "Year":  "2013",
+                                     "YearBase":  "2013",
+                                     "Source":  "de Araujo et al., 2013"
+                                 },
+                                 {
+                                     "Surname":  "Sadri",
+                                     "NormalizedSurname":  "sadri",
+                                     "Year":  "2023",
+                                     "YearBase":  "2023",
+                                     "Source":  "Sadri Moghaddam \u0026 Mesghali, 2023"
+                                 }
+                             ],
+    "RemovedUncited":  [
+                           {
+                               "Reference":  "de Araujo (2013)",
+                               "Title":  "Sensitivity analysis of optimal operation of an activated sludge process model for economic controlled variable selection"
+                           },
+                           {
+                               "Reference":  "Sadri Moghaddam (2023)",
+                               "Title":  "A new hybrid ensemble approach for the prediction of effluent total nitrogen from a full-scale wastewater treatment plant using a combined trickling filter-activated sludge system"
+                           }
+                       ],
+    "RemovedUnverified":  [
+
+                          ],
+    "DoiActions":  [
+
+                   ],
+    "CrossrefUnverifiedKept":  [
+                                   {
+                                       "Reference":  "Akiba (2019)",
+                                       "Title":  "Optuna: A next-generation hyperparameter optimization framework",
+                                       "Score":  91.67,
+                                       "Note":  "Low-confidence Crossref match.",
+                                       "BestTitle":  "Optuna",
+                                       "BestDoi":  "10.1145/3292500.3330701"
+                                   },
+                                   {
+                                       "Reference":  "Bergstra (2011)",
+                                       "Title":  "Algorithms for hyper-parameter optimization",
+                                       "Score":  104,
+                                       "Note":  "Low-confidence Crossref match.",
+                                       "BestTitle":  "Hyper-parameter optimization for convolutional neural network committees based on evolutionary algorithms",
+                                       "BestDoi":  "10.1109/icip.2017.8297018"
+                                   },
+                                   {
+                                       "Reference":  "Cawley (2011)",
+                                       "Title":  "Baseline methods for active learning",
+                                       "Score":  92,
+                                       "Note":  "Low-confidence Crossref match.",
+                                       "BestTitle":  "Workshop \u0026amp;#x2014; Developing active learning classroom exercises for use with Tablet PCs",
+                                       "BestDoi":  "10.1109/fie.2011.6143096"
+                                   },
+                                   {
+                                       "Reference":  "Demsar (2006)",
+                                       "Title":  "Statistical comparisons of classifiers over multiple data sets",
+                                       "Score":  52.86,
+                                       "Note":  "Low-confidence Crossref match.",
+                                       "BestTitle":  "Machine Learning Classifiers for Tornado Detection: Sensitivity Analysis on Tornado Data Sets",
+                                       "BestDoi":  "10.1115/1.802566.paper101"
+                                   },
+                                   {
+                                       "Reference":  "Guyon (2011)",
+                                       "Title":  "Results of the active learning challenge",
+                                       "Score":  115,
+                                       "Note":  "Low-confidence Crossref match.",
+                                       "BestTitle":  "Design and analysis of the WCCI 2010 active learning challenge",
+                                       "BestDoi":  "10.1109/ijcnn.2010.5596506"
+                                   },
+                                   {
+                                       "Reference":  "Min (2024)",
+                                       "Title":  "Hard-constrained neural networks with universal approximation guarantees",
+                                       "Score":  0,
+                                       "Note":  "No Crossref candidates returned.",
+                                       "BestTitle":  "",
+                                       "BestDoi":  ""
+                                   },
+                                   {
+                                       "Reference":  "Stenstrom (1991)",
+                                       "Title":  "Effects of oxygen transport limitation on nitrification in the activated sludge process",
+                                       "Score":  90.56,
+                                       "Note":  "Low-confidence Crossref match.",
+                                       "BestTitle":  "The influence of reactor mixing characteristics on the rate of nitrification in the activated sludge process",
+                                       "BestDoi":  "10.1016/0043-1354(91)90078-5"
+                                   },
+                                   {
+                                       "Reference":  "Utkarsh (2025)",
+                                       "Title":  "End-to-end probabilistic framework for learning with hard constraints",
+                                       "Score":  60,
+                                       "Note":  "Low-confidence Crossref match.",
+                                       "BestTitle":  "End-to-end Learning of Probabilistic and Geometric Constellation Shaping with Iterative Receivers",
+                                       "BestDoi":  "10.1109/gcwkshps68340.2025.11591144"
+                                   }
+                               ],
+    "ApaWarnings":  [
+
+                    ],
+    "References":  [
+                       {
+                           "Index":  1,
+                           "Reference":  "Aboagye (2021)",
+                           "Title":  "Systematic design, optimization, and sustainability assessment for generation of efficient wastewater treatment networks",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.3390/w13091326",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.3390/w13091326",
+                           "CrossrefTitle":  "Systematic Design, Optimization, and Sustainability Assessment for Generation of Efficient Wastewater Treatment Networks",
+                           "CrossrefContainer":  "Water",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  2,
+                           "Reference":  "de Araujo (2013)",
+                           "Title":  "Sensitivity analysis of optimal operation of an activated sludge process model for economic controlled variable selection",
+                           "IsCited":  false,
+                           "ExistingDoi":  "10.1021/ie4006673",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1021/ie4006673",
+                           "CrossrefTitle":  "Sensitivity Analysis of Optimal Operation of an Activated Sludge Process Model for Economic Controlled Variable Selection",
+                           "CrossrefContainer":  "Industrial \u0026amp; Engineering Chemistry Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  3,
+                           "Reference":  "Ahn (2014)",
+                           "Title":  "Determination of optimal operating factors via modeling for livestock wastewater treatment: Comparison of simulated and experimental data",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.ibiod.2014.04.014",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.ibiod.2014.04.014",
+                           "CrossrefTitle":  "Determination of optimal operating factors via modeling for livestock wastewater treatment: Comparison of simulated and experimental data",
+                           "CrossrefContainer":  "International Biodeterioration \u0026amp; Biodegradation",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  4,
+                           "Reference":  "Akiba (2019)",
+                           "Title":  "Optuna: A next-generation hyperparameter optimization framework",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1145/3292500.3330701",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  91.67,
+                           "CrossrefDoi":  "10.1145/3292500.3330701",
+                           "CrossrefTitle":  "Optuna",
+                           "CrossrefContainer":  "Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery \u0026amp; Data Mining",
+                           "CrossrefNote":  "Low-confidence Crossref match."
+                       },
+                       {
+                           "Index":  5,
+                           "Reference":  "Asadi (2017)",
+                           "Title":  "Wastewater treatment aeration process optimization: A data mining approach",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jenvman.2016.07.047",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.jenvman.2016.07.047",
+                           "CrossrefTitle":  "Wastewater treatment aeration process optimization: A data mining approach",
+                           "CrossrefContainer":  "Journal of Environmental Management",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  6,
+                           "Reference":  "Bagherzadeh (2021)",
+                           "Title":  "Comparative study on total nitrogen prediction in wastewater treatment plant and effect of various feature selection methods on machine learning algorithms performance",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jwpe.2021.102033",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.jwpe.2021.102033",
+                           "CrossrefTitle":  "Comparative study on total nitrogen prediction in wastewater treatment plant and effect of various feature selection methods on machine learning algorithms performance",
+                           "CrossrefContainer":  "Journal of Water Process Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  7,
+                           "Reference":  "Ba-Alawi (2021)",
+                           "Title":  "Intelligent sensor validation for sustainable influent quality monitoring in wastewater treatment plants using stacked denoising autoencoders",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jwpe.2021.102206",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.jwpe.2021.102206",
+                           "CrossrefTitle":  "Intelligent sensor validation for sustainable influent quality monitoring in wastewater treatment plants using stacked denoising autoencoders",
+                           "CrossrefContainer":  "Journal of Water Process Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  8,
+                           "Reference":  "Bergstra (2011)",
+                           "Title":  "Algorithms for hyper-parameter optimization",
+                           "IsCited":  true,
+                           "ExistingDoi":  "",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  104,
+                           "CrossrefDoi":  "10.1109/icip.2017.8297018",
+                           "CrossrefTitle":  "Hyper-parameter optimization for convolutional neural network committees based on evolutionary algorithms",
+                           "CrossrefContainer":  "2017 IEEE International Conference on Image Processing (ICIP)",
+                           "CrossrefNote":  "Low-confidence Crossref match."
+                       },
+                       {
+                           "Index":  9,
+                           "Reference":  "Beucler (2021)",
+                           "Title":  "Enforcing analytic constraints in neural networks emulating physical systems",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1103/physrevlett.126.098302",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1103/physrevlett.126.098302",
+                           "CrossrefTitle":  "Enforcing Analytic Constraints in Neural Networks Emulating Physical Systems",
+                           "CrossrefContainer":  "Physical Review Letters",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  10,
+                           "Reference":  "Brunton (2016)",
+                           "Title":  "Discovering governing equations from data by sparse identification of nonlinear dynamical systems",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1073/pnas.1517384113",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  199.17,
+                           "CrossrefDoi":  "10.1073/pnas.1517384113",
+                           "CrossrefTitle":  "Discovering governing equations from data by sparse identification of nonlinear dynamical systems",
+                           "CrossrefContainer":  "Proceedings of the National Academy of Sciences",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  11,
+                           "Reference":  "Bhosekar (2018)",
+                           "Title":  "Advances in surrogate based modeling, feasibility analysis, and optimization: A review",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.compchemeng.2017.09.017",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.compchemeng.2017.09.017",
+                           "CrossrefTitle":  "Advances in surrogate based modeling, feasibility analysis, and optimization: A review",
+                           "CrossrefContainer":  "Computers \u0026amp; Chemical Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  12,
+                           "Reference":  "Croll (2023)",
+                           "Title":  "Reinforcement learning applied to wastewater treatment process control optimization: Approaches, challenges, and path forward",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1080/10643389.2023.2183699",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1080/10643389.2023.2183699",
+                           "CrossrefTitle":  "Reinforcement learning applied to wastewater treatment process control optimization: Approaches, challenges, and path forward",
+                           "CrossrefContainer":  "Critical Reviews in Environmental Science and Technology",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  13,
+                           "Reference":  "Curtiss (1952)",
+                           "Title":  "Integration of stiff equations",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1073/pnas.38.3.235",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1073/pnas.38.3.235",
+                           "CrossrefTitle":  "Integration of Stiff Equations",
+                           "CrossrefContainer":  "Proceedings of the National Academy of Sciences",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  14,
+                           "Reference":  "Cawley (2011)",
+                           "Title":  "Baseline methods for active learning",
+                           "IsCited":  true,
+                           "ExistingDoi":  "",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  92,
+                           "CrossrefDoi":  "10.1109/fie.2011.6143096",
+                           "CrossrefTitle":  "Workshop \u0026amp;#x2014; Developing active learning classroom exercises for use with Tablet PCs",
+                           "CrossrefContainer":  "2011 Frontiers in Education Conference (FIE)",
+                           "CrossrefNote":  "Low-confidence Crossref match."
+                       },
+                       {
+                           "Index":  15,
+                           "Reference":  "Demsar (2006)",
+                           "Title":  "Statistical comparisons of classifiers over multiple data sets",
+                           "IsCited":  true,
+                           "ExistingDoi":  "",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  52.86,
+                           "CrossrefDoi":  "10.1115/1.802566.paper101",
+                           "CrossrefTitle":  "Machine Learning Classifiers for Tornado Detection: Sensitivity Analysis on Tornado Data Sets",
+                           "CrossrefContainer":  "Intelligent Engineering Systems through Artificial Neural Networks, Volume 16",
+                           "CrossrefNote":  "Low-confidence Crossref match."
+                       },
+                       {
+                           "Index":  16,
+                           "Reference":  "Duan (2022)",
+                           "Title":  "Heterotrophic nitrifying bacteria in wastewater biological nitrogen removal systems: A review",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1080/10643389.2021.1877976",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  193,
+                           "CrossrefDoi":  "10.1080/10643389.2021.1877976",
+                           "CrossrefTitle":  "Heterotrophic nitrifying bacteria in wastewater biological nitrogen removal systems: A review",
+                           "CrossrefContainer":  "Critical Reviews in Environmental Science and Technology",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  17,
+                           "Reference":  "Durkin (2024)",
+                           "Title":  "Surrogate-based optimisation of process systems to recover resources from wastewater",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.compchemeng.2024.108584",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.compchemeng.2024.108584",
+                           "CrossrefTitle":  "Surrogate-based optimisation of process systems to recover resources from wastewater",
+                           "CrossrefContainer":  "Computers \u0026amp; Chemical Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  18,
+                           "Reference":  "Fang (2011)",
+                           "Title":  "A simulation-based integrated approach to optimize the biological nutrient removal process in a full-scale wastewater treatment plant",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.cej.2011.09.079",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.cej.2011.09.079",
+                           "CrossrefTitle":  "A simulation-based integrated approach to optimize the biological nutrient removal process in a full-scale wastewater treatment plant",
+                           "CrossrefContainer":  "Chemical Engineering Journal",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  19,
+                           "Reference":  "Geiss (2022)",
+                           "Title":  "Downscaling atmospheric chemistry simulations with physically consistent deep learning",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.5194/gmd-15-6677-2022",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.5194/gmd-15-6677-2022",
+                           "CrossrefTitle":  "Downscaling atmospheric chemistry simulations with physically consistent deep learning",
+                           "CrossrefContainer":  "Geoscientific Model Development",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  20,
+                           "Reference":  "Geman (1992)",
+                           "Title":  "Neural networks and the bias\\/variance dilemma",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1162/neco.1992.4.1.1",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1162/neco.1992.4.1.1",
+                           "CrossrefTitle":  "Neural Networks and the Bias/Variance Dilemma",
+                           "CrossrefContainer":  "Neural Computation",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  21,
+                           "Reference":  "Guyon (2011)",
+                           "Title":  "Results of the active learning challenge",
+                           "IsCited":  true,
+                           "ExistingDoi":  "",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  115,
+                           "CrossrefDoi":  "10.1109/ijcnn.2010.5596506",
+                           "CrossrefTitle":  "Design and analysis of the WCCI 2010 active learning challenge",
+                           "CrossrefContainer":  "The 2010 International Joint Conference on Neural Networks (IJCNN)",
+                           "CrossrefNote":  "Low-confidence Crossref match."
+                       },
+                       {
+                           "Index":  22,
+                           "Reference":  "Guerrero (2011)",
+                           "Title":  "The nature of the carbon source rules the competition between PAO and denitrifiers in systems for simultaneous biological nitrogen and phosphorus removal",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.watres.2011.06.019",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.watres.2011.06.019",
+                           "CrossrefTitle":  "The nature of the carbon source rules the competition between PAO and denitrifiers in systems for simultaneous biological nitrogen and phosphorus removal",
+                           "CrossrefContainer":  "Water Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  23,
+                           "Reference":  "Harder (2022)",
+                           "Title":  "Physics-informed learning of aerosol microphysics",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1017/eds.2022.22",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1017/eds.2022.22",
+                           "CrossrefTitle":  "Physics-informed learning of aerosol microphysics",
+                           "CrossrefContainer":  "Environmental Data Science",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  24,
+                           "Reference":  "Hansen (2024)",
+                           "Title":  "Learning physical models that can respect conservation laws",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.physd.2023.133952",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.physd.2023.133952",
+                           "CrossrefTitle":  "Learning physical models that can respect conservation laws",
+                           "CrossrefContainer":  "Physica D: Nonlinear Phenomena",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  25,
+                           "Reference":  "Huangfu (2018)",
+                           "Title":  "Parallelizing the dual revised simplex method",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1007/s12532-017-0130-5",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  193,
+                           "CrossrefDoi":  "10.1007/s12532-017-0130-5",
+                           "CrossrefTitle":  "Parallelizing the dual revised simplex method",
+                           "CrossrefContainer":  "Mathematical Programming Computation",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  26,
+                           "Reference":  "Henze (2006)",
+                           "Title":  "Activated Sludge Models ASM1, ASM2, ASM2d and ASM3",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.2166/9781780402369",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  177,
+                           "CrossrefDoi":  "10.2166/9781780402369",
+                           "CrossrefTitle":  "Activated Sludge Models ASM1, ASM2, ASM2d and ASM3",
+                           "CrossrefContainer":  "Water Intelligence Online",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  27,
+                           "Reference":  "Henze (1999)",
+                           "Title":  "Activated Sludge Model No. 2d, ASM2D",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.2166/wst.1999.0036",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.2166/wst.1999.0036",
+                           "CrossrefTitle":  "Activated Sludge Model No.2d, ASM2D",
+                           "CrossrefContainer":  "Water Science and Technology",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  28,
+                           "Reference":  "Khatri (2020)",
+                           "Title":  "A review of partial least squares modeling (PLSM) for water quality analysis",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1007/s40808-020-00995-4",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1007/s40808-020-00995-4",
+                           "CrossrefTitle":  "A review of partial least squares modeling (PLSM) for water quality analysis",
+                           "CrossrefContainer":  "Modeling Earth Systems and Environment",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  29,
+                           "Reference":  "Kim (2009)",
+                           "Title":  "Dual Optimization Strategy for N and P Removal in a Biological Wastewater Treatment Plant",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1021/ie801689t",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  198,
+                           "CrossrefDoi":  "10.1021/ie801689t",
+                           "CrossrefTitle":  "Dual Optimization Strategy for N and P Removal in a Biological Wastewater Treatment Plant",
+                           "CrossrefContainer":  "Industrial \u0026amp; Engineering Chemistry Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  30,
+                           "Reference":  "Kircher (2025)",
+                           "Title":  "Machine learning surrogate models for mechanistic kinetics: Embedding atom balance and positivity",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1021/acs.jpclett.5c00602",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  175,
+                           "CrossrefDoi":  "10.1021/acs.jpclett.5c00602",
+                           "CrossrefTitle":  "Machine Learning Surrogate Models for Mechanistic Kinetics: Embedding Atom Balance\n                    \u003ci\u003eand\u003c/i\u003e\n                    Positivity",
+                           "CrossrefContainer":  "The Journal of Physical Chemistry Letters",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  31,
+                           "Reference":  "Li (2020)",
+                           "Title":  "Dissolved Oxygen Model Predictive Control for Activated Sludge Process Model Based on the Fuzzy C-means Cluster Algorithm",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1007/s12555-019-0438-1",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1007/s12555-019-0438-1",
+                           "CrossrefTitle":  "Dissolved Oxygen Model Predictive Control for Activated Sludge Process Model Based on the Fuzzy C-means Cluster Algorithm",
+                           "CrossrefContainer":  "International Journal of Control, Automation and Systems",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  32,
+                           "Reference":  "Lim (2011)",
+                           "Title":  "Exploration of dual optimal conditions for COD and nitrogen removal in an MBR",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1002/apj.563",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1002/apj.563",
+                           "CrossrefTitle":  "Exploration of dual optimal conditions for COD and nitrogen removal in an MBR",
+                           "CrossrefContainer":  "Asia-Pacific Journal of Chemical Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  33,
+                           "Reference":  "Lin (2022)",
+                           "Title":  "Effects of Water Pollution on Human Health and Disease Heterogeneity: A Review",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.3389/fenvs.2022.880246",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.3389/fenvs.2022.880246",
+                           "CrossrefTitle":  "Effects of Water Pollution on Human Health and Disease Heterogeneity: A Review",
+                           "CrossrefContainer":  "Frontiers in Environmental Science",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  34,
+                           "Reference":  "Liu (2021)",
+                           "Title":  "Monitoring of wastewater treatment processes using dynamic concurrent kernel partial least squares",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.psep.2020.09.034",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  199.17,
+                           "CrossrefDoi":  "10.1016/j.psep.2020.09.034",
+                           "CrossrefTitle":  "Monitoring of wastewater treatment processes using dynamic concurrent kernel partial least squares",
+                           "CrossrefContainer":  "Process Safety and Environmental Protection",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  35,
+                           "Reference":  "Madhav (2020)",
+                           "Title":  "Water pollutants: sources and impact on the environment and human health",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1007/978-981-15-0671-0_4",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  161.89,
+                           "CrossrefDoi":  "10.1007/978-981-15-0671-0_4",
+                           "CrossrefTitle":  "Water Pollutants: Sources and Impact on the Environment and Human Health",
+                           "CrossrefContainer":  "Advanced Functional Materials and Sensors",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  36,
+                           "Reference":  "Machado (2014)",
+                           "Title":  "Activated sludge model 2d calibration with full-scale WWTP data: comparing model parameter identifiability with influent and operational uncertainty",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1007/s00449-013-1099-8",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  193,
+                           "CrossrefDoi":  "10.1007/s00449-013-1099-8",
+                           "CrossrefTitle":  "Activated sludge model 2d calibration with full-scale WWTP data: comparing model parameter identifiability with influent and operational uncertainty",
+                           "CrossrefContainer":  "Bioprocess and Biosystems Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  37,
+                           "Reference":  "McKay (1979)",
+                           "Title":  "Comparison of three methods for selecting values of input variables in the analysis of output from a computer code",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1080/00401706.1979.10489755",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1080/00401706.1979.10489755",
+                           "CrossrefTitle":  "Comparison of Three Methods for Selecting Values of Input Variables in the Analysis of Output from a Computer Code",
+                           "CrossrefContainer":  "Technometrics",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  38,
+                           "Reference":  "Mao (2024)",
+                           "Title":  "Optimization of effluent quality and energy consumption of aeration process in wastewater treatment plants using artificial intelligence",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jwpe.2024.105384",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.jwpe.2024.105384",
+                           "CrossrefTitle":  "Optimization of effluent quality and energy consumption of aeration process in wastewater treatment plants using artificial intelligence",
+                           "CrossrefContainer":  "Journal of Water Process Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  39,
+                           "Reference":  "Min (2024)",
+                           "Title":  "Hard-constrained neural networks with universal approximation guarantees",
+                           "IsCited":  true,
+                           "ExistingDoi":  "",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  0,
+                           "CrossrefDoi":  "",
+                           "CrossrefTitle":  "",
+                           "CrossrefContainer":  "",
+                           "CrossrefNote":  "No Crossref candidates returned."
+                       },
+                       {
+                           "Index":  40,
+                           "Reference":  "Nazlabadi (2021)",
+                           "Title":  "A systematic and critical review of two decades\u0027 application of response surface methodology in biological wastewater treatment processes",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.5004/dwt.2021.27315",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  198,
+                           "CrossrefDoi":  "10.5004/dwt.2021.27315",
+                           "CrossrefTitle":  "A systematic and critical review of two decades’ application of response surface methodology in biological wastewater treatment processes",
+                           "CrossrefContainer":  "Desalination and Water Treatment",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  41,
+                           "Reference":  "Newhart (2019)",
+                           "Title":  "Data-driven performance analyses of wastewater treatment plants: A review",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.watres.2019.03.030",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  193.33,
+                           "CrossrefDoi":  "10.1016/j.watres.2019.03.030",
+                           "CrossrefTitle":  "Data-driven performance analyses of wastewater treatment plants: A review",
+                           "CrossrefContainer":  "Water Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  42,
+                           "Reference":  "Padron-Paez (2020)",
+                           "Title":  "Sustainable wastewater treatment plants design through multiobjective optimization",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.compchemeng.2020.106850",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.compchemeng.2020.106850",
+                           "CrossrefTitle":  "Sustainable wastewater treatment plants design through multiobjective optimization",
+                           "CrossrefContainer":  "Computers \u0026amp; Chemical Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  43,
+                           "Reference":  "Pinheiro (2025)",
+                           "Title":  "The impact of feature scaling in machine learning: Effects on regression and classification tasks",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1109/access.2025.3635541",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1109/access.2025.3635541",
+                           "CrossrefTitle":  "The Impact of Feature Scaling in Machine Learning: Effects on Regression and Classification Tasks",
+                           "CrossrefContainer":  "IEEE Access",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  44,
+                           "Reference":  "Raissi (2019)",
+                           "Title":  "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jcp.2018.10.045",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.jcp.2018.10.045",
+                           "CrossrefTitle":  "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations",
+                           "CrossrefContainer":  "Journal of Computational Physics",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  45,
+                           "Reference":  "Razaviyayn (2013)",
+                           "Title":  "A unified convergence analysis of block successive minimization methods for nonsmooth optimization",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1137/120891009",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1137/120891009",
+                           "CrossrefTitle":  "A Unified Convergence Analysis of Block Successive Minimization Methods for Nonsmooth Optimization",
+                           "CrossrefContainer":  "SIAM Journal on Optimization",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  46,
+                           "Reference":  "Ruckstuhl (2021)",
+                           "Title":  "Training a convolutional neural network to conserve mass in data assimilation",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.5194/npg-28-111-2021",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.5194/npg-28-111-2021",
+                           "CrossrefTitle":  "Training a convolutional neural network to conserve mass in data assimilation",
+                           "CrossrefContainer":  "Nonlinear Processes in Geophysics",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  47,
+                           "Reference":  "Rudin (2019)",
+                           "Title":  "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1038/s42256-019-0048-x",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1038/s42256-019-0048-x",
+                           "CrossrefTitle":  "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+                           "CrossrefContainer":  "Nature Machine Intelligence",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  48,
+                           "Reference":  "Sadeghassadi (2018)",
+                           "Title":  "Application of neural networks for optimal-setpoint design and MPC control in biological wastewater treatment",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.compchemeng.2018.04.007",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.compchemeng.2018.04.007",
+                           "CrossrefTitle":  "Application of neural networks for optimal-setpoint design and MPC control in biological wastewater treatment",
+                           "CrossrefContainer":  "Computers \u0026amp; Chemical Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  49,
+                           "Reference":  "Sadri Moghaddam (2023)",
+                           "Title":  "A new hybrid ensemble approach for the prediction of effluent total nitrogen from a full-scale wastewater treatment plant using a combined trickling filter-activated sludge system",
+                           "IsCited":  false,
+                           "ExistingDoi":  "10.1007/s11356-022-21864-w",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  193,
+                           "CrossrefDoi":  "10.1007/s11356-022-21864-w",
+                           "CrossrefTitle":  "A new hybrid ensemble approach for the prediction of effluent total nitrogen from a full-scale wastewater treatment plant using a combined trickling filter-activated sludge system",
+                           "CrossrefContainer":  "Environmental Science and Pollution Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  50,
+                           "Reference":  "Shen (2023)",
+                           "Title":  "Differentiable modelling to unify machine learning and physical models for geosciences",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1038/s43017-023-00450-9",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1038/s43017-023-00450-9",
+                           "CrossrefTitle":  "Differentiable modelling to unify machine learning and physical models for geosciences",
+                           "CrossrefContainer":  "Nature Reviews Earth \u0026amp; Environment",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  51,
+                           "Reference":  "Straus (2018)",
+                           "Title":  "Surrogate model generation using self-optimizing variables",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.compchemeng.2018.08.031",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.compchemeng.2018.08.031",
+                           "CrossrefTitle":  "Surrogate model generation using self-optimizing variables",
+                           "CrossrefContainer":  "Computers \u0026amp; Chemical Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  52,
+                           "Reference":  "Stenstrom (1991)",
+                           "Title":  "Effects of oxygen transport limitation on nitrification in the activated sludge process",
+                           "IsCited":  true,
+                           "ExistingDoi":  "",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  90.56,
+                           "CrossrefDoi":  "10.1016/0043-1354(91)90078-5",
+                           "CrossrefTitle":  "The influence of reactor mixing characteristics on the rate of nitrification in the activated sludge process",
+                           "CrossrefContainer":  "Water Research",
+                           "CrossrefNote":  "Low-confidence Crossref match."
+                       },
+                       {
+                           "Index":  53,
+                           "Reference":  "Shevchenko (2024)",
+                           "Title":  "From variability to stability: Advancing RecSys benchmarking practices",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1145/3637528.3671655",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1145/3637528.3671655",
+                           "CrossrefTitle":  "From Variability to Stability: Advancing RecSys Benchmarking Practices",
+                           "CrossrefContainer":  "Proceedings of the 30th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  54,
+                           "Reference":  "Stellato (2018)",
+                           "Title":  "OSQP: An operator splitting solver for quadratic programs",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1109/control.2018.8516834",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1109/control.2018.8516834",
+                           "CrossrefTitle":  "OSQP: An Operator Splitting Solver for Quadratic Programs",
+                           "CrossrefContainer":  "2018 UKACC 12th International Conference on Control (CONTROL)",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  55,
+                           "Reference":  "Sturm (2023)",
+                           "Title":  "Advecting superspecies: Efficiently modeling transport of organic aerosol with a mass-conserving dimensionality reduction method",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1029/2022ms003235",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1029/2022ms003235",
+                           "CrossrefTitle":  "Advecting Superspecies: Efficiently Modeling Transport of Organic Aerosol With a Mass‐Conserving Dimensionality Reduction Method",
+                           "CrossrefContainer":  "Journal of Advances in Modeling Earth Systems",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  56,
+                           "Reference":  "Sturm (2025)",
+                           "Title":  "A nudge to the truth: Atom conservation as a hard constraint in models of atmospheric composition using a species-weighted correction",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1021/acsestair.4c00220",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  193,
+                           "CrossrefDoi":  "10.1021/acsestair.4c00220",
+                           "CrossrefTitle":  "A Nudge to the Truth: Atom Conservation as a Hard Constraint in Models of Atmospheric Composition Using a Species-Weighted Correction",
+                           "CrossrefContainer":  "ACS ES\u0026amp;T Air",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  57,
+                           "Reference":  "Sturm (2020)",
+                           "Title":  "A mass- and energy-conserving framework for using machine learning to speed computations: A photochemistry example",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.5194/gmd-13-4435-2020",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.5194/gmd-13-4435-2020",
+                           "CrossrefTitle":  "A mass- and energy-conserving framework for using machine learning to speed computations: a photochemistry example",
+                           "CrossrefContainer":  "Geoscientific Model Development",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  58,
+                           "Reference":  "Sturm (2022)",
+                           "Title":  "Conservation laws in a neural network architecture: Enforcing the atom balance of a Julia-based photochemical model (v0.2.0)",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.5194/gmd-15-3417-2022",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.5194/gmd-15-3417-2022",
+                           "CrossrefTitle":  "Conservation laws in a neural network architecture: enforcing the atom balance of a Julia-based photochemical model (v0.2.0)",
+                           "CrossrefContainer":  "Geoscientific Model Development",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  59,
+                           "Reference":  "Tang (2026)",
+                           "Title":  "Surrogate model-based optimal design of coal chemical wastewater treatment networks with a multi-stage system",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.3390/pr14050806",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.3390/pr14050806",
+                           "CrossrefTitle":  "Surrogate Model-Based Optimal Design of Coal Chemical Wastewater Treatment Networks with a Multi-Stage System",
+                           "CrossrefContainer":  "Processes",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  60,
+                           "Reference":  "Tsochatzidi (2025)",
+                           "Title":  "A novel surrogate-based optimisation framework for pharmaceutical process systems",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.ijpharm.2025.125861",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.ijpharm.2025.125861",
+                           "CrossrefTitle":  "A novel surrogate-based optimisation framework for pharmaceutical process systems",
+                           "CrossrefContainer":  "International Journal of Pharmaceutics",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  61,
+                           "Reference":  "Utkarsh (2025)",
+                           "Title":  "End-to-end probabilistic framework for learning with hard constraints",
+                           "IsCited":  true,
+                           "ExistingDoi":  "",
+                           "CrossrefReliable":  false,
+                           "CrossrefScore":  60,
+                           "CrossrefDoi":  "10.1109/gcwkshps68340.2025.11591144",
+                           "CrossrefTitle":  "End-to-end Learning of Probabilistic and Geometric Constellation Shaping with Iterative Receivers",
+                           "CrossrefContainer":  "2025 IEEE Globecom Workshops (GC Wkshps)",
+                           "CrossrefNote":  "Low-confidence Crossref match."
+                       },
+                       {
+                           "Index":  62,
+                           "Reference":  "Viering (2023)",
+                           "Title":  "The Shape of Learning Curves: A Review",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1109/tpami.2022.3220744",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1109/tpami.2022.3220744",
+                           "CrossrefTitle":  "The Shape of Learning Curves: A Review",
+                           "CrossrefContainer":  "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  63,
+                           "Reference":  "Wentzel (1992)",
+                           "Title":  "Processes and Modelling of Nitrification Denitrification Biological Excess Phosphorus Removal Systems-A Review",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.2166/wst.1992.0114",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.2166/wst.1992.0114",
+                           "CrossrefTitle":  "Processes and Modelling of Nitrification Denitrification Biological Excess Phosphorus Removal Systems – A Review",
+                           "CrossrefContainer":  "Water Science and Technology",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  64,
+                           "Reference":  "Wang (2025)",
+                           "Title":  "Comparison of interpretable machine learning models and mechanistic model for predicting effluent nitrogen in WWTP",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jwpe.2025.108344",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.jwpe.2025.108344",
+                           "CrossrefTitle":  "Comparison of interpretable machine learning models and mechanistic model for predicting effluent nitrogen in WWTP",
+                           "CrossrefContainer":  "Journal of Water Process Engineering",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  65,
+                           "Reference":  "Wold (2001)",
+                           "Title":  "PLS-regression: a basic tool of chemometrics",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/s0169-7439(01)00155-1",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/s0169-7439(01)00155-1",
+                           "CrossrefTitle":  "PLS-regression: a basic tool of chemometrics",
+                           "CrossrefContainer":  "Chemometrics and Intelligent Laboratory Systems",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  66,
+                           "Reference":  "Woo (2009)",
+                           "Title":  "On-line estimation of key process variables based on kernel partial least squares in an industrial cokes wastewater treatment plant",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jhazmat.2008.04.004",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.jhazmat.2008.04.004",
+                           "CrossrefTitle":  "On-line estimation of key process variables based on kernel partial least squares in an industrial cokes wastewater treatment plant",
+                           "CrossrefContainer":  "Journal of Hazardous Materials",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  67,
+                           "Reference":  "Xiao (2025)",
+                           "Title":  "A new paradigm in activated sludge management: an interpretable framework integrating mechanistic dynamics with a data-driven surrogate model",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.envres.2025.123435",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  193,
+                           "CrossrefDoi":  "10.1016/j.envres.2025.123435",
+                           "CrossrefTitle":  "A new paradigm in activated sludge management: an interpretable framework integrating mechanistic dynamics with a data-driven surrogate model",
+                           "CrossrefContainer":  "Environmental Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  68,
+                           "Reference":  "Yilmaz (2007)",
+                           "Title":  "Effectiveness of an alternating aerobic, anoxic\\/anaerobic strategy for maintaining biomass activity of BNR sludge during long-term starvation",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.watres.2007.02.011",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.watres.2007.02.011",
+                           "CrossrefTitle":  "Effectiveness of an alternating aerobic, anoxic/anaerobic strategy for maintaining biomass activity of BNR sludge during long-term starvation",
+                           "CrossrefContainer":  "Water Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  69,
+                           "Reference":  "Yang (2021)",
+                           "Title":  "Adaptive dynamic prediction of effluent quality in wastewater treatment processes using partial least squares embedded with relevance vector machine",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.jclepro.2021.128076",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  196.25,
+                           "CrossrefDoi":  "10.1016/j.jclepro.2021.128076",
+                           "CrossrefTitle":  "Adaptive dynamic prediction of effluent quality in wastewater treatment processes using partial least squares embedded with relevance vector machine",
+                           "CrossrefContainer":  "Journal of Cleaner Production",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  70,
+                           "Reference":  "Yang (2014)",
+                           "Title":  "Fuzzy model-based predictive control of dissolved oxygen in activated sludge processes",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.neucom.2014.01.025",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  187.5,
+                           "CrossrefDoi":  "10.1016/j.neucom.2014.01.025",
+                           "CrossrefTitle":  "Fuzzy model-based predictive control of dissolved oxygen in activated sludge processes",
+                           "CrossrefContainer":  "Neurocomputing",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       },
+                       {
+                           "Index":  71,
+                           "Reference":  "Yang (2025)",
+                           "Title":  "Machine learning based prediction of waste activated sludge generation for optimization of WWTP operational efficiency",
+                           "IsCited":  true,
+                           "ExistingDoi":  "10.1016/j.envres.2025.122990",
+                           "CrossrefReliable":  true,
+                           "CrossrefScore":  205,
+                           "CrossrefDoi":  "10.1016/j.envres.2025.122990",
+                           "CrossrefTitle":  "Machine learning based prediction of waste activated sludge generation for optimization of WWTP operational efficiency",
+                           "CrossrefContainer":  "Environmental Research",
+                           "CrossrefNote":  "Reliable Crossref match."
+                       }
+                   ],
+    "Build":  null
+}
