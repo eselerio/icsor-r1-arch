@@ -198,11 +198,11 @@ Activated sludge models are essential for wastewater-treatment design and operat
 
 \excerptlocation{Highlights}
 \begin{revisionexcerpt}
-ICSOR couples invariant-aware regression with hard constrained deployment.
+ICSOR combines interpretable regression with constrained deployment.
 
-Affine/LP correction yields zero violations in final deployed test outputs.
+Deployed predictions satisfy conservation and non-negativity exactly.
 
-Hard feasibility is obtained with a moderate fixed-split RMSE tradeoff.
+Physical guarantees involve a moderate fixed-split accuracy tradeoff.
 \end{revisionexcerpt}
 
 \excerptlocation{Graphical Abstract labels}
@@ -225,7 +225,7 @@ Final deployed outputs:
 
 \excerptlocation{Introduction}
 \begin{revisionexcerpt}
-This study addresses that need through the development of Invariant-Constrained Second-Order Regression (ICSOR), an interpretable constrained-deployment surrogate for steady-state activated sludge systems. ICSOR is designed to answer a practical question: given a steady-state influent condition and operating point, what effluent state should be returned when deployment requires physical admissibility? Its regression head is invariant-aware rather than inherently feasible: soft training penalties shape the raw component-space predictor, and a checked affine/LP correction supplies the hard conservation and non-negativity guarantee for the state returned to the user.
+This study addresses that need through Invariant-Constrained Second-Order Regression (ICSOR), an interpretable surrogate for steady-state activated sludge systems. ICSOR is designed for a practical task: using influent conditions and operating settings to provide a fast estimate of the effluent state that engineers can inspect and use with confidence. Unlike an unconstrained predictor, ICSOR checks the predicted component state before returning it and ensures that the final result conserves the modeled material inventories and contains no negative concentrations.
 \end{revisionexcerpt}
 
 \excerptlocation{Section 2.3, training-objective interpretation}
@@ -267,7 +267,7 @@ This coefficient-level view differs from PLS loadings and local ANN sensitivity 
 
 \excerptlocation{Conclusion}
 \begin{revisionexcerpt}
-This study developed Invariant-Constrained Second-Order Regression (ICSOR) as an interpretable constrained-deployment surrogate for steady-state activated sludge systems. Its invariant-aware regression head is not inherently feasible: none of the raw coupled test predictions satisfied conservation. Exact stoichiometric conservation and componentwise non-negativity are instead guaranteed for the final returned state by a hierarchical deployment rule consisting of a raw feasibility check, a closed-form affine invariant projection, and, when necessary, a linear program. The affine stage was sufficient for 21.8\% of test cases and the LP corrected the remaining 78.2\%, yielding zero final conservation and non-negativity violations. Every unconstrained baseline violated conservation on all test samples, and several also produced negative component concentrations.
+This study introduced Invariant-Constrained Second-Order Regression (ICSOR), an interpretable surrogate for steady-state activated sludge systems. ICSOR separates prediction from physical enforcement. Its invariant-aware regression head provides a transparent component-level prediction, and a hierarchical deployment procedure ensures that the returned state satisfies exact stoichiometric conservation and componentwise non-negativity. The procedure first checks the raw prediction, then applies a closed-form affine projection, and finally uses a linear program when non-negativity is still violated. The affine stage was sufficient for 21.8\% of test cases, while the linear program handled the remaining 78.2\%. Consequently, every deployed ICSOR prediction satisfied both physical requirements. By comparison, every unconstrained baseline violated conservation on all test samples, and several also predicted negative component concentrations.
 \end{revisionexcerpt}
 
 \subsection*{Minor comment}
@@ -294,7 +294,7 @@ ICSOR does not attain the lowest aggregate RMSE: its final deployed outputs give
 
 \excerptlocation{Conclusion}
 \begin{revisionexcerpt}
-These deployment-stage guarantees were obtained with a moderate predictive tradeoff. On the fixed 80--20 split, ICSOR attained an aggregate test RMSE of 5.98 in the reported composite space, 36.5\% above the MLP value of 4.38 and 12.8\% above the LightGBM value of 5.30.
+These physical guarantees came with a moderate accuracy tradeoff. On the fixed 80--20 split, ICSOR produced an aggregate test RMSE of 5.98, compared with 4.38 for the MLP and 5.30 for LightGBM. These differences correspond to increases of 36.5\% and 12.8\%, respectively.
 \end{revisionexcerpt}
 
 \subsection*{Acceptance condition}
